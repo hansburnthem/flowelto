@@ -6,21 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    
-    public function flower(){
-        return $this->belongsToMany(
-            Flower::class, 'transaction_details', 'transaction_id', 'flower_id'
-        );
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'transactions';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
-    
-    public function details(){
-        return $this->hasMany(
-            TransactionDetail::class, 'transaction_id'
-        );
+
+    public function transactionDetails() {
+        return $this->hasMany(TransactionDetail::class);
     }
-            public function user(){
-                return $this->belongsTo(
-                    User::class, 'user_id', 'user_id'
-                );
-            }
 }

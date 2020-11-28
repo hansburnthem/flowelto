@@ -13,13 +13,12 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('transactions');
         Schema::create('transactions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->unsignedInteger('user_id');
-            $table->dateTime('datetime');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

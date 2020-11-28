@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Flower extends Model
+class TransactionDetail extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'flowers';
+    protected $table = 'transaction_details';
 
     /**
      * The primary key associated with the table.
@@ -20,7 +20,11 @@ class Flower extends Model
      */
     protected $primaryKey = 'id';
 
-    public function flowerCategory() {
-        return $this->belongsTo(FlowerCategory::class);
+    public function transaction() {
+        return $this->belongsTo(Transaction::class);
+    }
+
+    public function flower() {
+        return $this->belongsTo(Flower::class);
     }
 }

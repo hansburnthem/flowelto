@@ -14,14 +14,15 @@ class CreateFlowersTable extends Migration
     public function up()
     {
         Schema::create('flowers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->unsignedInteger('category_id');
+            $table->id();
+            $table->unsignedBigInteger('flower_category_id');
             $table->string('flower_name');
-            $table->integer('flower_price');
-            $table->string('flower_description');
-            $table->string('flower_image')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('flower_price');
+            $table->string('flower_desc');
+            $table->string('flower_img')->nullable();
+            $table->timestamps();
+
+            $table->foreign('flower_category_id')->references('id')->on('flower_categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

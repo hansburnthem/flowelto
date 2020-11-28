@@ -10,11 +10,19 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public function transaction(){
-        return $this->hasMany(
-            Transaction::class, 'user_id', 'transaction_id'
-        );
-    }
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -42,4 +50,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
+    }
 }

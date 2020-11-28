@@ -1,22 +1,28 @@
-@extends('welcome')
-@include('header')
+@extends('layouts.app')
 
-@section('content')
-    <h1 style="text-align:center;"> Welcome to Flowelto Shop</h1>
-    <h5 style="text-align:center; margin-top:5px">The Best Flower Shop in Binus University</h5>
-        <div class="card-deck d-flex justify-content-center">
-            @foreach($category as $category_value)
-            <a href="{{ $category_value->id }}">
-                <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                    <img class="card-img-top" src="{{  asset("assets/$category_value->category_image") }}" style="width:390px; height:490px; margin:5px;">
-                    <div class="card-body">
-                    </div>      
-                    <h4 class="card-title" style="text-align:center; color: black;">{{ $category_value->category_name }}</h4>
-                </div>
-            </a>
-            @endforeach
-        </div>
-    <br>
-    {{$category->links()}}
+@section('header')
+    @component("components.meta", ["title" => "Home"])
+    @endcomponent
 @endsection
 
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

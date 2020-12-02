@@ -9,28 +9,28 @@
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans p-1">
     <div class="absolute left-0 right-0 top-5 mx-10 p-4 bg-green-500 flex justify-between text-white rounded-2xl shadow-lg md:mx-40 lg:mx-80">
         <div class="hidden md:flex items-center">
-            <button id="categoryMenu" class="flex flex-row self-center focus:outline-none">
+            <button id="categoryMenu" class="flex flex-row self-center focus:outline-none opacity-100 hover:opacity-50 focus:opacity-50 duration-300">
                 Categories
                 @component ('components.icons', ['icon' => 'arrow-down', 'size'=>'4', 'hidden' => false])
                 @endcomponent
-                <div id="mobile-nav2" class="hidden absolute w-56 left-0 top-16 text-sm">
-                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                        <div class="z-30 relative bg-white p-1 text-black">
-                            @if(count($categories))
+            </button>
+            <div id="mobile-nav2" class="hidden absolute left-0 w-auto top-16 text-sm text-center">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="z-30 relative bg-white p-2 text-black flex flex-col">
+                        @if(count($categories))
                             <ul>
                                 @foreach($categories as $category)
                                     <li class="mb-1">
-                                        <a href="#">{{ $category->category_name }}</a>
+                                        <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
                                     </li>
                                 @endforeach
                             </ul>
-                            @else
-                                <p>There's no categories</p>
-                            @endif
-                        </div>
+                        @else
+                            <p>There's no categories</p>
+                        @endif
                     </div>
                 </div>
-            </button>
+            </div>
         </div>
         <div class="self-center">
             <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black"><b>{{ config('app.name') }}</b></a>
@@ -45,7 +45,7 @@
                             <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
                                 <a href="#">{{ auth()->user()->username }}</a>
                             </div>
-                            <form action="{{ route('logout') }}" method=POST id="logoutForm" class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                            <form action="{{ route('logout') }}" method="post" id="logoutForm" class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
                                 @csrf
                                 <a id="logoutButton">Logout</a>
                             </form>
@@ -68,21 +68,39 @@
         <ul class="hidden md:flex items-center">
             @auth
                 <li class="px-2">
-                    <b class="underline text-red-400">{{ auth()->user()->username }}</b>
+                    <button class="text-green-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg" onclick="profileMenu()">
+                        {{ auth()->user()->username }}
+                    </button>
+                    <div id="mobile-nav3" class="hidden absolute right-20 w-auto top-16 text-sm text-center">
+                        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <div class="z-30 relative bg-white p-2 text-black flex flex-col">
+                                @if(auth()->user()->role->role_name == 'Manager')
+                                    <b>Manager</b>
+                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Add Flower</a>
+                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Manage Categories</a>
+                                @elseif(auth()->user()->role->role_name == 'Customer')
+                                    <b>User</b>
+                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">My Cart</a>
+                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Transaction History</a>
+                                @endif
+                                <a href="{{ route('change_password') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Change Password</a>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li class="pl-2">
-                    <form action="{{ route('logout') }}" method=POST>
+                    <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <button>Logout</button>
+                        <button class="focus:outline-none no-underline hover:underline hover:text-pink-400 duration-300">logout</button>
                     </form>
                 </li>
             @endauth
             @guest
                 <li class="px-2">
-                    <a href="{{ route('login') }}" class="no-underline hover:underline">Login</a>
+                    <a href="{{ route('login') }}" class="no-underline hover:underline">login</a>
                 </li>
                 <li class="pl-2">
-                    <a href="{{ route('register') }}" class="no-underline hover:underline hover:text-pink-400 duration-300">Register</a>
+                    <a href="{{ route('register') }}" class="no-underline hover:underline hover:text-pink-400 duration-300">register</a>
                 </li>
             @endguest
         </ul>
@@ -91,6 +109,16 @@
             @yield('content')
         </div>
 <script>
+
+    function profileMenu() {
+        if (document.getElementById('mobile-nav3').classList.contains('hidden')){
+            document.getElementById('mobile-nav3').classList.remove('hidden');
+        }
+        else {
+            document.getElementById('mobile-nav3').classList.add('hidden');
+        }
+    };
+
     document.getElementById('hamburgerMenu').addEventListener('click', function () {
         if (document.getElementById('mobile-nav').classList.contains('hidden')){
             document.getElementById('mobile-nav').classList.remove('hidden');

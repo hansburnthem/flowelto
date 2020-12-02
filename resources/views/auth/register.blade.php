@@ -58,7 +58,8 @@
                 <div class="mb-4 mr-2 text-center flex flex-col">
                     <span class="text-red-400 mb-2"><b>Gender</b></span>
 
-                    <select name="cars" id="cars">
+                    <label for="gender">Select Gender</label>
+                    <select name="gender" id="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>

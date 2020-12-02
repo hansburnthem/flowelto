@@ -23,3 +23,5 @@ Route::post('/login', 'Auth\LoginController@store');
 Route::get('/register', 'Auth\RegisterController@index')->name('register');
 Route::post('/register', 'Auth\RegisterController@store');
 
+Route::get('/changepassword','Auth\ChangePassword@index')->name('change_password');
+Route::post('/changepassword','Auth\ChangePassword@store');

@@ -21,11 +21,11 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
-            return back()->with('status', 'Invalid login details');
+        if (!\Auth::attempt($request->only('email', 'password'), $request->remember)) {
+            return back()->with('status', 'Invalid login details')->withInput();
         }
 
-        $request->session()->put('status', 'You are logged in');
-        return redirect()->route('home');
+//        $request->session()->put('status', 'You are logged in');
+        return redirect()->route('home')->with('status', 'You are logged in');
     }
 }

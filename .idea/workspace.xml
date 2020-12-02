@@ -20,30 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="500e20ef-8990-4cd2-a789-6fac545c2534" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LogoutController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/RoleSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FloweltoShop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FloweltoShop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ChangePassword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/change-password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/nav_bar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/icons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/icons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/meta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/meta.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -213,7 +195,7 @@
       <workItem from="1606823094161" duration="45000" />
       <workItem from="1606874042371" duration="179000" />
       <workItem from="1606874307244" duration="296000" />
-      <workItem from="1606874777253" duration="19999000" />
+      <workItem from="1606874777253" duration="30160000" />
     </task>
     <task id="LOCAL-00001" summary="feat: refactor database structure and create model">
       <created>1606541670980</created>
@@ -251,7 +233,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="feat: refactor database structure and create model" />
     <MESSAGE value="feat: create layout template using tailwind.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create layout template using tailwind.css" />
+    <MESSAGE value="feat: fix ui template" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: fix ui template" />
   </component>
   <component name="WindowStateProjectService">
     <state x="514" y="335" key="#Composer" timestamp="1606536403048">
@@ -262,6 +245,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606542833009" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606924753706">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606924753706" />
     <state x="458" y="369" key="ComposerInitDialogKey" timestamp="1606874598408">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -270,10 +257,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606874323572" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606901630237">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606926031956">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606901630237" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606926031956" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/1440.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1606556749569" />
   </component>
 </project>

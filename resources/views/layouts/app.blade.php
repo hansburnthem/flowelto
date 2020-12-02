@@ -8,8 +8,8 @@
 @endphp
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans p-1">
     <div class="absolute left-0 right-0 top-5 mx-10 p-4 bg-green-500 flex justify-between text-white rounded-2xl shadow-lg md:mx-40 lg:mx-80">
-        <div class="hidden lg:flex items-center">
-            <button id="categoryMenu" class="flex flex-row self-center focus:outline-none animate-bounce">
+        <div class="hidden md:flex items-center">
+            <button id="categoryMenu" class="flex flex-row self-center focus:outline-none">
                 Categories
                 @component ('components.icons', ['icon' => 'arrow-down', 'size'=>'4', 'hidden' => false])
                 @endcomponent
@@ -35,28 +35,40 @@
         <div class="self-center">
             <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black"><b>{{ config('app.name') }}</b></a>
         </div>
-        <button id="hamburgerMenu" class="block lg:hidden z-20 focus:outline-none">
+        <button id="hamburgerMenu" class="block md:hidden z-20 focus:outline-none">
             @component ('components.icons', ['icon' => 'hamburger-menu', 'size'=>'6','hidden' => false])
             @endcomponent
-            <div id="mobile-nav" class="hidden absolute w-20 right-0 top-16 text-sm">
-                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div class="z-30 relative bg-white p-1 text-black">
-                       <ul>
-                           <li>
-                               Puki ayam
-                           </li>
-                           <li>
-                               Puki ayam 2
-                           </li>
-                       </ul>
+            <div id="mobile-nav" class="hidden absolute w-full right-0 top-16 text-sm">
+                <div class="overflow-hidden">
+                    <div class="z-30 flex flex-row text-black ">
+                        @auth
+                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                                <a href="#">{{ auth()->user()->username }}</a>
+                            </div>
+                            <form action="{{ route('logout') }}" method=POST id="logoutForm" class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                                @csrf
+                                <a id="logoutButton">Logout</a>
+                            </form>
+                        @endauth
+                        @guest
+                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                                <a href="{{ route('login') }}">Login</a>
+                            </div>
+                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                                <a href="{{ route('register') }}">Register</a>
+                            </div>
+                        @endguest
+                        <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                            <a href="">Categories</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </button>
-        <ul class="hidden lg:flex items-center">
+        <ul class="hidden md:flex items-center">
             @auth
                 <li class="px-2">
-                    <b>{{ auth()->user()->username }}</b>
+                    <b class="underline text-red-400">{{ auth()->user()->username }}</b>
                 </li>
                 <li class="pl-2">
                     <form action="{{ route('logout') }}" method=POST>
@@ -75,24 +87,32 @@
             @endguest
         </ul>
     </div>
-    <div class="mt-28 mx-5 py-5 px-10 bg-white flex justify-between text-black rounded-2xl shadow-lg md:mx-32 lg:mx-56">
-        @yield('content')
-    </div>
+        <div id="contentId" class="mt-32 md:mt-28 flex flex-col items-center">
+            @yield('content')
+        </div>
 <script>
     document.getElementById('hamburgerMenu').addEventListener('click', function () {
-        if (document.getElementById('mobile-nav').classList.contains('hidden')) document.getElementById('mobile-nav').classList.remove("hidden");
-        else document.getElementById('mobile-nav').classList.add("hidden");
+        if (document.getElementById('mobile-nav').classList.contains('hidden')){
+            document.getElementById('mobile-nav').classList.remove('hidden');
+            // document.getElementById('contentId').classList.remove('mt-32','md:mt-28');
+        }
+        else {
+            document.getElementById('mobile-nav').classList.add("hidden");
+            // document.getElementById('contentId').classList.add('mt-32','md:mt-28');
+        }
     });
 
     document.getElementById('categoryMenu').addEventListener('click', function () {
         if (document.getElementById('mobile-nav2').classList.contains('hidden')){
-            document.getElementById('categoryMenu').classList.remove("animate-bounce");
             document.getElementById('mobile-nav2').classList.remove("hidden");
         }
         else {
             document.getElementById('mobile-nav2').classList.add("hidden");
-            document.getElementById('categoryMenu').classList.add("animate-bounce");
         }
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', function () {
+       document.getElementById('logoutForm').submit();
     });
 </script>
 </body>

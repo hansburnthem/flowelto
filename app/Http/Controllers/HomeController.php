@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\FlowerCategory;
 
 class HomeController extends Controller
 {
@@ -12,6 +13,8 @@ class HomeController extends Controller
 //    }
 
     public function index() {
-        return view('index');
+        $categories = FlowerCategory::orderBy('category_name')->get();
+
+        return view('index',['categories'=>$categories]);
     }
 }

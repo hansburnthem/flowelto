@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
+// Route Authentication for user
 Route::post('/logout', 'Auth\LogoutController@store')->name('logout');
 
 Route::get('/login', 'Auth\LoginController@index')->name('login');
@@ -23,5 +24,14 @@ Route::post('/login', 'Auth\LoginController@store');
 Route::get('/register', 'Auth\RegisterController@index')->name('register');
 Route::post('/register', 'Auth\RegisterController@store');
 
-Route::get('/changepassword','Auth\ChangePassword@index')->name('change_password');
-Route::post('/changepassword','Auth\ChangePassword@store');
+// Change password for user
+Route::get('/password','Auth\ChangePassword@index')->name('change_password');
+Route::put('/password','Auth\ChangePassword@store');
+
+// Route for Manager Role
+Route::get('/manager/categories','ManagerController@viewCategories')->name('manager_categories');
+Route::delete('/manager/categories','ManagerController@deleteCategory');
+
+Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('manager_categories_update');
+Route::put('/manager/category/{id?}','ManagerController@updateCategory');
+

@@ -1,36 +1,33 @@
 @extends('layouts.app')
 
 @section('header')
-    @component("components.meta", ["title" => ""])
+    @component("components.meta", ["title" => "Home"])
     @endcomponent
 @endsection
 
 @section('content')
     @if (session('status'))
-        <div class="p-2 w-auto rounded-xl text-green-700 bg-green-100 border border-green-300 flex flex-row mb-2">
-            @component ('components.icons', ['icon' => 'success', 'size'=>'5','hidden' => false])
-            @endcomponent
-            <div class="text-sm text-center ml-1">
-                {{ session('status') }}
-            </div>
-        </div>
+        @component('components.session', ['statusType' => Str::substr(session('status'), 1, 3), 'status' => Str::substr(session('status'), 5)])
+        @endcomponent
         @php
             Session::forget('status');
         @endphp
     @endif
-    @if (session('error'))
-        <div class="p-2 w-auto rounded-xl text-red-700 bg-red-100 border border-red-300 flex flex-row mb-2">
-            @component ('components.icons', ['icon' => 'error', 'size'=>'5','hidden' => false])
-            @endcomponent
-            <div class="text-sm text-center ml-1">
-                {{ session('status') }}
-            </div>
+    <div class="mb-5 pt-5 px-0 md:px-10 md:max-w-5xl w-64 md:w-auto bg-white text-black rounded-2xl shadow-lg">
+        <p class="text-center text-5xl mb-5 italic underline font-serif">Categories</p>
+        <div class="flex flex-row flex-wrap justify-center text-center">
+            @if(count($categories))
+                @foreach($categories as $category)
+                    <a href="#" class="bg-green-400 rounded-2xl shadow-xl md:mx-2 mb-5 text-white hover:opacity-90 duration-300 hover:bg-white hover:text-black">
+                        <img src="{{ asset('storage/'. $category->category_img) }}" class="w-52 rounded-2xl">
+                        <div class="p-2">
+                            {{ $category->category_name }}
+                        </div>
+                    </a>
+                @endforeach
+            @else
+                <p>There's no categories</p>
+            @endif
         </div>
-        @php
-            Session::forget('status');
-        @endphp
-    @endif
-    <div class="mx-5 py-5 px-10 md:mx-32 lg:mx-56 bg-white text-black rounded-2xl shadow-lg">
-
     </div>
 @endsection

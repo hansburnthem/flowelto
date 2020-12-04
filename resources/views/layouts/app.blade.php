@@ -4,13 +4,13 @@
     @yield('header')
 </head>
 @php
-    $categories = \App\FlowerCategory::get();
+    $categories = \App\FlowerCategory::orderBy('category_name')->get();
 @endphp
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans p-1">
     <div class="absolute left-0 right-0 top-5 mx-10 p-4 bg-green-500 flex justify-between text-white rounded-2xl shadow-lg md:mx-40 lg:mx-80">
         <div class="hidden md:flex items-center">
             <button id="categoryMenu" class="flex flex-row self-center focus:outline-none opacity-100 hover:opacity-50 focus:opacity-50 duration-300">
-                Categories
+                categories
                 @component ('components.icons', ['icon' => 'arrow-down', 'size'=>'4', 'hidden' => false])
                 @endcomponent
             </button>
@@ -18,13 +18,9 @@
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                         @if(count($categories))
-                            <ul>
-                                @foreach($categories as $category)
-                                    <li class="mb-1">
-                                        <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
+                            @foreach($categories as $category)
+                                <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
+                            @endforeach
                         @else
                             <p>There's no categories</p>
                         @endif
@@ -33,7 +29,7 @@
             </div>
         </div>
         <div class="self-center">
-            <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black"><b>{{ config('app.name') }}</b></a>
+            <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black font-serif"><b>{{ config('app.name') }}</b></a>
         </div>
         <button id="hamburgerMenu" class="block md:hidden z-20 focus:outline-none">
             @component ('components.icons', ['icon' => 'hamburger-menu', 'size'=>'6','hidden' => false])
@@ -42,7 +38,7 @@
                 <div class="overflow-hidden">
                     <div class="z-30 flex flex-row text-black ">
                         @auth
-                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full">
                                 <a href="#">{{ auth()->user()->username }}</a>
                             </div>
                             <form action="{{ route('logout') }}" method="post" id="logoutForm" class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
@@ -68,19 +64,19 @@
         <ul class="hidden md:flex items-center">
             @auth
                 <li class="px-2">
-                    <button class="text-green-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg" onclick="profileMenu()">
+                    <button class="text-green-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg shadow-lg" onclick="profileMenu()">
                         {{ auth()->user()->username }}
                     </button>
                     <div id="mobile-nav3" class="hidden absolute right-20 w-auto top-16 text-sm text-center">
                         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                                 @if(auth()->user()->role->role_name == 'Manager')
-                                    <b>Manager</b>
-                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Add Flower</a>
-                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Manage Categories</a>
+                                    <a href="#" class="text-lg text-green-500 border border-solid border-green-500 rounded-lg">Manager</a>
+                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg mt-1">Add Flower</a>
+                                    <a href="{{ route('manager_categories') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Manage Categories</a>
                                 @elseif(auth()->user()->role->role_name == 'Customer')
-                                    <b>User</b>
-                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">My Cart</a>
+                                    <a href="#" class="text-lg text-green-500 border border-solid border-green-500 rounded-lg">Customer</a>
+                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg mt-1">My Cart</a>
                                     <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Transaction History</a>
                                 @endif
                                 <a href="{{ route('change_password') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Change Password</a>
@@ -105,9 +101,9 @@
             @endguest
         </ul>
     </div>
-        <div id="contentId" class="mt-32 md:mt-28 flex flex-col items-center">
-            @yield('content')
-        </div>
+    <div id="contentId" class="mt-32 md:mt-28 flex flex-col items-center">
+        @yield('content')
+    </div>
 <script>
 
     function profileMenu() {

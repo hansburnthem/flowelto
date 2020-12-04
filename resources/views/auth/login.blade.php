@@ -9,13 +9,8 @@
     <div class="flex justify-center">
         <div class="w-auto sm:w-72 md:w-80 bg-white p-5 rounded-2xl text-black shadow-lg">
             @if (session('status'))
-                <div class="p-2 w-auto rounded-xl text-red-700 bg-red-100 border border-red-300 flex flex-row mb-2">
-                    @component ('components.icons', ['icon' => 'error', 'size'=>'5','hidden' => false])
-                    @endcomponent
-                    <div class="text-sm text-center ml-1">
-                        {{ session('status') }}
-                    </div>
-                </div>
+                @component('components.session', ['statusType' => Str::substr(session('status'), 1, 3), 'status' => Str::substr(session('status'), 5)])
+                @endcomponent
                 @php
                     Session::forget('status');
                 @endphp
@@ -54,7 +49,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded-xl font-medium w-full">Login</button>
+                    <button type="submit" class="bg-green-500 hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full">Login</button>
                 </div>
             </form>
         </div>

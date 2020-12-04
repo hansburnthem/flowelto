@@ -28,6 +28,6 @@ class ChangePassword extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->route('home')->with('status','Success!! Your password has been changed');
+        return redirect()->route('home')->with('status','[scc] Success!! Your password has been changed');
     }
 }

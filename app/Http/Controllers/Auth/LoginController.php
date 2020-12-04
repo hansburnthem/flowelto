@@ -22,10 +22,10 @@ class LoginController extends Controller
         ]);
 
         if (!\Auth::attempt($request->only('email', 'password'), $request->remember)) {
-            return back()->with('status', 'Invalid login details')->withInput();
+            return back()->with('status', '[err] Invalid login details')->withInput();
         }
 
 //        $request->session()->put('status', 'You are logged in');
-        return redirect()->route('home')->with('status', 'You are logged in');
+        return redirect()->route('home')->with('status', '[scc] You are logged in');
     }
 }

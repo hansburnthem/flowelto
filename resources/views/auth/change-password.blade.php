@@ -10,7 +10,7 @@
         <div class="w-auto sm:w-72 md:w-80 bg-white p-5 rounded-2xl text-black shadow-lg">
             <form action="{{ route('change_password') }}" method="post">
                 @csrf
-
+                @method('PUT')
                 <div class="mb-4">
                     <label for="old_password" class="sr-only">Current Password</label>
                     <input type="password" name="old_password" id="old_password" placeholder="Current password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('old_password') border-red-500 @enderror" value="">
@@ -45,7 +45,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded-xl font-medium w-full">Change Password</button>
+                    <button type="submit" class="bg-green-500 hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full">Change Password</button>
                 </div>
             </form>
         </div>

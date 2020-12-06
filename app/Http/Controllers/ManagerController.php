@@ -64,10 +64,10 @@ class ManagerController extends Controller
         $category                = FlowerCategory::find($id);
         $category->category_name = $request->category_name;
 
-        if($request->file('category_image') != null)
+        if($request->file('category_img') != null)
         {
-            $file = $request->file('category_image');
-            $destinationPath = 'aset/';
+            $file = $request->file('category_img');
+            $destinationPath = 'storage\app\public\assets';
             $filename = date('YmdHis')."_"."Category".$request->category_name.".".$file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
 
@@ -77,5 +77,6 @@ class ManagerController extends Controller
         $category->save();
 
         return redirect()->route('updateFormCategories', [$id]);
+        // return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
 }

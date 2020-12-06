@@ -14,7 +14,8 @@
         @endphp
     @endif
     <div class="mb-5 pt-5 px-0 md:px-10 md:max-w-5xl w-64 md:w-auto bg-white text-black rounded-2xl shadow-lg">
-        <p class="text-center text-5xl mb-5 italic underline font-serif">Categories</p>
+        <p class="text-center text-5xl mb-5 italic underline font-serif">Welcome to Flowelto Sop</p>
+        <p class="text-center text-2xl mb-5 italic underline font-serif">The best Flower Shop in Binus University</p>
         <div class="flex flex-row flex-wrap justify-center text-center">
             @if(count($categories))
                 @foreach($categories as $category)

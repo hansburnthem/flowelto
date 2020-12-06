@@ -18,6 +18,25 @@
         <div class="bg-green-400 rounded-2xl shadow-xl md:mx-2 mb-5 text-white">
             <img src="{{ asset('storage/'. $category->category_img) }}" class="w-52 rounded-2xl">
 
+            <form name="updateCategories" enctype="multipart/form-data" action="{{URL('/manager/category/' . $category->id)}}" method="post" id="form">
+                @csrf
+
+                <!--Update Category Name-->
+                <td><label for="categoryName" id="text-label">Category Name </label></td><br>
+                <td><input type="text" id="username" name="category_name" value="{{$category->category_name}}" placeholder="Input new category name" required></td><br>
+                @if($errors->first('category_name'))
+                    <div class="alert alert-danger">{{$errors->first('category_name')}}</div>
+                @endif
+
+                <!--Update Category Image-->
+                <td><label for="categoryImage" id="text-label">Category Image</label></td><br>
+                <input type="file" name="category_image">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"> <br> <br>
+                
+                <!--Update Button-->
+                <button class="btn btn-primary btn">Update</button>
+            </form>
+            
         </div>
     </div>
 @endsection

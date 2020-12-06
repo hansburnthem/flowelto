@@ -33,5 +33,8 @@ Route::get('/manager/categories','ManagerController@viewCategories')->name('mana
 Route::delete('/manager/categories','ManagerController@deleteCategory');
 
 Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('manager_categories_update');
-Route::put('/manager/category/{id?}','ManagerController@updateCategory');
+// Route::put('/manager/category/{id?}','ManagerController@updateCategory');
 
+//View form update categories
+Route::get('/manager/category/{id}', 'ManagerController@updateFormCategories')->name('updateCategories');
+Route::post('/manager/category/{id}', 'ManagerController@updateCategory')->name('updateFormCategories');

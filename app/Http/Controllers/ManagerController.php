@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FlowerCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ManagerController extends Controller
 {
@@ -39,7 +40,42 @@ class ManagerController extends Controller
         return view('manager.update-category',['category'=>$category]);
     }
 
-    public function updateCategory() {
+    //Update Categories Form
+    public function updateFormCategories($id){
+        $category = FlowerCategory::where('id',$id)->first();
+        return view('updateCategory',['category'=>$category]);
+    }
 
+    //Update Categories
+    public function updateCategory(Request $request, $id) {
+        $message = [
+            'category_name.min'         => 'New category name with minimum 5 characters',
+            'category_name.required'    => 'New category name must be filled',
+        ];	
+        
+        $validator = Validator::make($request->all(), [
+            'category_name' => 'required|min:5'
+        ], $message);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+
+        $category                = FlowerCategory::find($id);
+        $category->category_name = $request->category_name;
+
+        if($request->file('category_image') != null)
+        {
+            $file = $request->file('category_image');
+            $destinationPath = 'aset/';
+            $filename = date('YmdHis')."_"."Category".$request->category_name.".".$file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+
+            $category->category_image = $destinationPath.$filename;
+    	}
+
+        $category->save();
+
+        return redirect()->route('updateFormCategories', [$id]);
     }
 }

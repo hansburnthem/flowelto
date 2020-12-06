@@ -29,8 +29,8 @@
                 @endif
 
                 <!--Update Category Image-->
-                <td><label for="categoryImage" id="text-label">Category Image</label></td><br>
-                <input type="file" name="category_image">
+                <td><label for="categoryImg" id="text-label">Category Image</label></td><br>
+                <input type="file" name="category_img">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> <br> <br>
                 
                 <!--Update Button-->

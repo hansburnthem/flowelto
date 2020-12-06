@@ -25,6 +25,7 @@ class ManagerController extends Controller
         return view('manager.manage-categories',['categories'=>$categories]);
     }
 
+    //Delete Categories
     public function deleteCategory(Request $request) {
         if($this->checkAccount()) return $this->checkAccount();
 
@@ -67,11 +68,11 @@ class ManagerController extends Controller
         if($request->file('category_img') != null)
         {
             $file = $request->file('category_img');
-            $destinationPath = 'storage\app\public\assets';
+            $destinationPath = 'storage/';
             $filename = date('YmdHis')."_"."Category".$request->category_name.".".$file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
 
-            $category->category_image = $destinationPath.$filename;
+            $category->category_img = $destinationPath.$filename;
     	}
 
         $category->save();

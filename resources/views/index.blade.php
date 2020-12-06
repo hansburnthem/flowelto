@@ -19,7 +19,7 @@
         <div class="flex flex-row flex-wrap justify-center text-center">
             @if(count($categories))
                 @foreach($categories as $category)
-                    <a href="#" class="bg-green-400 rounded-2xl shadow-xl md:mx-2 mb-5 text-white hover:opacity-90 duration-300 hover:bg-white hover:text-black">
+                    <a href="{{URL('viewProduct/' . $category->id)}}" class="bg-green-400 rounded-2xl shadow-xl md:mx-2 mb-5 text-white hover:opacity-90 duration-300 hover:bg-white hover:text-black">
                         <img src="{{ asset('storage/'. $category->category_img) }}" class="w-52 rounded-2xl">
                         <div class="p-2">
                             {{ $category->category_name }}

@@ -13,4 +13,5 @@ class ViewProductController extends Controller
         $flowers = Flower::where('flower_category_id', $id)->paginate(8);
         return view('layouts.viewProduct', compact('category','flowers','allCategory'));
     }
+    
 }

@@ -23,4 +23,5 @@ class FlowerCategory extends Model
     public function flowers() {
         return $this->hasMany(Flower::class);
     }
-}
+    
+} 

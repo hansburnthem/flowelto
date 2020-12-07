@@ -19,7 +19,7 @@
                     <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                         @if(count($categories))
                             @foreach($categories as $category)
-                                <a href="{{URL('viewProduct/' . $category->id)}}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
+                                <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
                             @endforeach
                         @else
                             <p>There's no categories</p>

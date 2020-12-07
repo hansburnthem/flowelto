@@ -37,10 +37,10 @@ Route::delete('/manager/categories','ManagerController@deleteCategory');
 Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('manager_categories_update');
 // Route::put('/manager/category/{id?}','ManagerController@updateCategory');
 
-//View form update categories
+//Update Category
 Route::get('/manager/category/{id}', 'ManagerController@updateFormCategories')->name('updateCategories');
 Route::post('/manager/category/{id}', 'ManagerController@updateCategory')->name('updateFormCategories');
 
 //View Product
-Route::get('/viewProduct/{id}', 'ViewProductController@viewProduct');
-Route::post('/viewProduct/{id}', 'ViewProductController@viewProduct');
+Route::get('/viewProduct/{id}', 'ManagerController@viewProduct')->name('view_product');
+Route::delete('/viewProduct/{id}', 'ManagerController@deleteProduct');

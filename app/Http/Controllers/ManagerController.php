@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\FlowerCategory;
+use App\Flower;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ManagerController extends Controller
 {
+    //Middleware for Auth
     public function __construct()
     {
         $this->middleware(['auth']);
     }
 
+    //Acount must be Manager
     public function checkAccount() {
         if(auth()->user()->role_id != 1) return redirect()->route('home')->with('status','[err] Please login with manager account');
     }
 
+    //View Categories for Manager
     public function viewCategories() {
         if($this->checkAccount()) return $this->checkAccount();
 
@@ -34,6 +38,7 @@ class ManagerController extends Controller
         return back()->with('status','[scc] Success delete category');
     }
 
+    //View Category for all user
     public function viewCategory($id) {
         if($this->checkAccount()) return $this->checkAccount();
 
@@ -79,5 +84,22 @@ class ManagerController extends Controller
 
         return redirect()->route('updateFormCategories', [$id]);
         // return redirect()->back()->with(['status' => 'Profile updated successfully.']);
+    }
+
+    //View Product
+    public function viewProduct($id){
+        $allCategory = FlowerCategory::get();
+        $category = FlowerCategory::where('id',$id)->first();
+        $flowers = Flower::where('flower_category_id', $id)->paginate(8);
+        return view('layouts.viewProduct', compact('category','flowers','allCategory'));
+    }
+
+    //Delete Flowers for Manager
+    public function deleteProduct(Request $request) {
+        if($this->checkAccount()) return $this->checkAccount();
+
+        $data = Flower::find($request->id)->first();
+        $data->delete();
+        return back()->with('status','[scc] Success delete category');
     }
 }

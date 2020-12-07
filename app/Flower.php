@@ -23,4 +23,5 @@ class Flower extends Model
     public function flowerCategory() {
         return $this->belongsTo(FlowerCategory::class);
     }
+    
 }

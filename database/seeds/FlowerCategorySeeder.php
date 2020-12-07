@@ -16,6 +16,12 @@ class FlowerCategorySeeder extends Seeder
     {
         FlowerCategory::insert([
             [
+                'category_name' => 'Hand Bouquet',
+                'category_img' => 'assets/categories/HandBouquet.png',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
                 'category_name' => 'Wedding Bouquet',
                 'category_img' => 'assets/categories/WeddingBouquet.jpg',
                 'created_at' => Carbon::now(),
@@ -24,12 +30,6 @@ class FlowerCategorySeeder extends Seeder
             [
                 'category_name' => 'Standing Flower',
                 'category_img' => 'assets/categories/StandingFlower.png',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'category_name' => 'Hand Bouquet',
-                'category_img' => 'assets/categories/HandBouquet.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

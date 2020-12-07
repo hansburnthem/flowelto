@@ -12,6 +12,7 @@ class DetailTransactionSeeder extends Seeder
      */
     public function run()
     {
+        
         DB::table('detail_transactions')->insert([
             'transaction_id' => '1',
             'flower_id' => '1',

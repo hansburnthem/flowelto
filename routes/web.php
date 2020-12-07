@@ -18,9 +18,11 @@ Route::get('/', 'HomeController@index')->name('home');
 // Route Authentication for user
 Route::post('/logout', 'Auth\LogoutController@store')->name('logout');
 
+//Login
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::post('/login', 'Auth\LoginController@store');
 
+//Register
 Route::get('/register', 'Auth\RegisterController@index')->name('register');
 Route::post('/register', 'Auth\RegisterController@store');
 
@@ -38,3 +40,7 @@ Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('ma
 //View form update categories
 Route::get('/manager/category/{id}', 'ManagerController@updateFormCategories')->name('updateCategories');
 Route::post('/manager/category/{id}', 'ManagerController@updateCategory')->name('updateFormCategories');
+
+//View Product
+Route::get('/viewProduct/{id}', 'ViewProductController@viewProduct');
+Route::post('/viewProduct/{id}', 'ViewProductController@viewProduct');

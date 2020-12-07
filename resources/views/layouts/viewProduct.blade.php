@@ -96,13 +96,6 @@
                                 <h1 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h1>
                                 <h1 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h1>
                             </div>  
-                            <div class="card-footer d-flex justify-content-center margin">
-                                <form action=" " method="">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Delete Flower</button>
-                                    <a href="#" class="btn btn-primary">Update Flower</a>
-                                </form>
-                            </div>    
                         </div>
                     </a>
                     </div>
@@ -122,13 +115,6 @@
                             <div class="card-body">
                                 <h1 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h1>
                                 <h1 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h1>
-                            </div>  
-                            <div class="card-footer d-flex justify-content-center margin">
-                                <form action=" " method="">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Delete Flower</button>
-                                    <a href="#" class="btn btn-primary">Update Flower</a>
-                                </form>
                             </div>    
                         </div>
                     </a>

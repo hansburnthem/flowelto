@@ -20,26 +20,26 @@
     <!--Form for select flower and search products-->
     <div class="container">
         <div class="row justify-content-start">
-          <div class="col-2">
-            <td class="align-baseline">
-                <form class="align-baseline" action=" " method="">
-                    <!--Option to view all flowers in a category-->
-                    <select class="form-control form-control-sm">
-                        <option>Name</option>
-                        @foreach($flowers as $f)
-                            <option>{{ $f->flower_name }}</option>
-                        @endforeach
-                    </select>
-                </form>
-          </div>
-          <!--Search data-->
-          <div class="col-2">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          </div>
-          <!--Search button-->
-          <div class="col-2">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </div>
+            <div class="col-2">
+                <td class="align-baseline">
+                </div>
+
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Flowers
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="d-flex flex-column">
+                    @foreach($flowers as $f)
+                        <a href="{{ route('detail_product', ['id'=>$f->id]) }}" style="font-size: 15px; color: black; margin:10px;">{{ $f->flower_name }}</a>
+                    @endforeach
+                </div>
+            </div>
+
+                
+            <form action="{{URL('viewProduct/' . $category->id .'/cari')}}" method="GET">
+                <input type="text" name="cari" placeholder="Search" value="{{ old('cari') }}">
+                <input type="submit" value="CARI">
+            </form>
         </div>
     </div>
 

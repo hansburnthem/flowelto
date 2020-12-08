@@ -45,5 +45,8 @@ Route::post('/manager/category/{id}', 'ManagerController@updateCategory')->name(
 Route::get('/viewProduct/{id}', 'ManagerController@viewProduct')->name('view_product');
 Route::delete('/viewProduct/{id}', 'ManagerController@deleteProduct');
 
+//Search Product
+Route::get('/viewProduct/{id}/cari', 'ManagerController@cari')->name('search_product');
+
 //Detail Product
 Route::get('/detailProduct/{id}', 'ManagerController@detailProduct')->name('detail_product');

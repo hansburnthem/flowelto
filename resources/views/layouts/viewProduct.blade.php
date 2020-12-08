@@ -23,6 +23,7 @@
           <div class="col-2">
             <td class="align-baseline">
                 <form class="align-baseline" action=" " method="">
+                    <!--Option to view all flowers in a category-->
                     <select class="form-control form-control-sm">
                         <option>Name</option>
                         @foreach($flowers as $f)
@@ -31,9 +32,11 @@
                     </select>
                 </form>
           </div>
+          <!--Search data-->
           <div class="col-2">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
           </div>
+          <!--Search button-->
           <div class="col-2">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </div>
@@ -41,42 +44,42 @@
     </div>
 
 
-    <!--Product View for Manager-->
     @if(Auth::user())
-
+    
+    <!--Product View for Manager-->
     @if(Auth::user()->role->role_name === 'Manager')
 
             <!--Data of flowers (Image, Name, Price) and button (Delete, Update)-->
             <div class="card-deck d-flex justify-content-center">
                 @foreach($flowers as $f)
-                <a href="#">
+                <a href="{{ route('detail_product', ['id'=>$f->id]) }}">
                     <div class="card-deck">
+
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
                             <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:390px; height:490px; margin:5px;">
                             <div class="card-body">
-                                <h1 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h1>
-                                <h1 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h1>
+                                <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
+                                <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
                             </div>  
-                            <div class="card-footer d-flex justify-content-center margin">
 
-                                {{-- <form class="w-full p-2 bg-red-400 rounded-l-2xl hover:text-white cursor-pointer hover:opacity-90 duration-300 "
-                                  action="{{ route('view_product')}}" method="post" onclick="this.submit()">
+                            <div class="card-footer d-flex justify-content-center margin">
+                                <!-----------------------------------------Masih error di DELTE DAN UPDATE------------------------------------------------>
+                                <form class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary"
+                                  action="{{ route('view_product', ['id'=>$f->id]) }}" method="post" onclick="this.submit()">
                                 @csrf
                                 @method('DELETE')
-                                <input type="hidden" name="id" value="{{ $flowers->flower_category_id }}">
+                                <input type="hidden" name="id" value="{{ $f->id }}">
                                     Delete
-                                </form> --}}
-                                
-                                <!--Masih error di DELTE DAN UPDATE-->
-                                <form action=" " method="">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Delete Flower</button>
-                                    <a href="#" class="btn btn-primary">Update Flower</a>
                                 </form>
-                            </div>    
+
+                                <a href="{{ route('view_product', ['id'=>$f->id]) }}" class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger">
+                                    Update
+                                </a>
+                            </div> 
                         </div>
-                    </a>
+                        
                     </div>
+                </a>
                 @endforeach
             </div>
             {{$flowers->links()}}
@@ -104,6 +107,7 @@
             {{$flowers->links()}}
         @endif
 
+        <!--Product View for Guest-->
         @else
             <!--Data of flowers (Image, Name, Price) and button (Delete, Update)-->
             <div class="card-deck d-flex justify-content-center">

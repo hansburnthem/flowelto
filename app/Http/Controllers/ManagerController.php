@@ -102,4 +102,10 @@ class ManagerController extends Controller
         $data->delete();
         return back()->with('status','[scc] Success delete category');
     }
+
+    //Detail Product
+    public function detailProduct($id){
+        $detail = Flower::where('id', $id) -> first();  
+        return view('layouts.detail-product') -> with('detail', $detail);
+    }
 }

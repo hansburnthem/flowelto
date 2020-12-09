@@ -7,7 +7,8 @@
     $categories = \App\FlowerCategory::orderBy('category_name')->get();
 @endphp
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans p-1">
-    <div class="absolute left-0 right-0 top-5 mx-10 p-4 bg-green-500 flex justify-between text-white rounded-2xl shadow-lg md:mx-40 lg:mx-80">
+    <div class="absolute left-0 right-0 top-5 mx-10 p-4 bg-pink-500 flex justify-between text-white rounded-2xl shadow-lg ">
+        
         <div class="hidden md:flex items-center">
             <button id="categoryMenu" class="flex flex-row self-center focus:outline-none opacity-100 hover:opacity-50 focus:opacity-50 duration-300">
                 categories
@@ -18,18 +19,19 @@
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                         @if(count($categories))
-                            @foreach($categories as $category)
-                                <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
-                            @endforeach
+                        @foreach($categories as $category)
+                        <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
+                        @endforeach
                         @else
-                            <p>There's no categories</p>
+                        <p>There's no categories</p>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
+        <!--TItle-->
         <div class="self-center">
-            <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black font-serif"><b>{{ config('app.name') }}</b></a>
+            <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black font-serif" style="color:white"><b>Flowelto Shop</b></a>
         </div>
         <button id="hamburgerMenu" class="block md:hidden z-20 focus:outline-none">
             @component ('components.icons', ['icon' => 'hamburger-menu', 'size'=>'6','hidden' => false])
@@ -72,7 +74,7 @@
                             <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                                 @if(auth()->user()->role->role_name == 'Manager')
                                     <a href="#" class="text-lg text-green-500 border border-solid border-green-500 rounded-lg">Manager</a>
-                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg mt-1">Add Flower</a>
+                                    <a href="{{ route('add_flower') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg mt-1">Add Flower</a>
                                     <a href="{{ route('manager_categories') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Manage Categories</a>
                                 @elseif(auth()->user()->role->role_name == 'Customer')
                                     <a href="#" class="text-lg text-green-500 border border-solid border-green-500 rounded-lg">Customer</a>
@@ -87,16 +89,16 @@
                 <li class="pl-2">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <button class="focus:outline-none no-underline hover:underline hover:text-pink-400 duration-300">logout</button>
+                        <button class="focus:outline-none no-underline hover:underline hover:text-white-400 duration-300">logout</button>
                     </form>
                 </li>
             @endauth
             @guest
                 <li class="px-2">
-                    <a href="{{ route('login') }}" class="no-underline hover:underline">login</a>
+                    <a href="{{ route('login') }}" class="no-underline hover:underline" style="color:white" >login</a>
                 </li>
                 <li class="pl-2">
-                    <a href="{{ route('register') }}" class="no-underline hover:underline hover:text-pink-400 duration-300">register</a>
+                    <a href="{{ route('register') }}" class="no-underline hover:underline hover:text-white-400 duration-300" style="color:white">register</a>
                 </li>
             @endguest
         </ul>

@@ -30,9 +30,12 @@ Route::post('/register', 'Auth\RegisterController@store');
 Route::get('/password','Auth\ChangePassword@index')->name('change_password');
 Route::put('/password','Auth\ChangePassword@store');
 
-// Route for Manager Role
+// Route for category
 Route::get('/manager/categories','ManagerController@viewCategories')->name('manager_categories');
 Route::delete('/manager/categories','ManagerController@deleteCategory');
+
+//Add Category
+Route::get('/add/flower','AddFlowerController@addFlower')->name('add_flower');
 
 Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('manager_categories_update');
 // Route::put('/manager/category/{id?}','ManagerController@updateCategory');
@@ -42,11 +45,15 @@ Route::get('/manager/category/{id}', 'ManagerController@updateFormCategories')->
 Route::post('/manager/category/{id}', 'ManagerController@updateCategory')->name('updateFormCategories');
 
 //View Product
-Route::get('/viewProduct/{id}', 'ManagerController@viewProduct')->name('view_product');
-Route::delete('/viewProduct/{id}', 'ManagerController@deleteProduct');
+Route::get('/viewProduct/{id}', 'ViewProductController@viewProduct')->name('view_product');
+Route::delete('/viewProduct/{id}', 'ViewProductController@deleteProduct');
 
 //Search Product
-Route::get('/viewProduct/{id}/cari', 'ManagerController@cari')->name('search_product');
+Route::get('/viewProduct/{id}/cari', 'ViewProductController@cari')->name('search_product');
 
 //Detail Product
-Route::get('/detailProduct/{id}', 'ManagerController@detailProduct')->name('detail_product');
+Route::get('/detailProduct/{id}', 'FlowerDetailController@detailProduct')->name('detail_product');
+
+//Update Product
+Route::get('/viewProduct/edit/{id}','UpdateProductController@edit')->name('edit_product');
+Route::post('/viewProduct/update/{id}','UpdateProductController@update')->name('update_product');

@@ -56,7 +56,7 @@
                     <div class="card-deck">
 
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:390px; height:490px; margin:5px;">
+                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
                                 <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
                                 <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
@@ -64,15 +64,15 @@
 
                             <div class="card-footer d-flex justify-content-center margin">
                                 <!-----------------------------------------Masih error di DELTE DAN UPDATE------------------------------------------------>
-                                <form class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary"
+                                {{-- <form class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary"
                                   action="{{ route('view_product', ['id'=>$f->id]) }}" method="post" onclick="this.submit()">
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="id" value="{{ $f->id }}">
                                     Delete
-                                </form>
+                                </form> --}}
 
-                                <a href="{{ route('view_product', ['id'=>$f->id]) }}" class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger">
+                                <a href="/viewProduct/edit/{{$f->id}} " class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger">
                                     Update
                                 </a>
                             </div> 
@@ -89,19 +89,21 @@
         @elseif (Auth::user()->role->role_name === 'Customer')
 
              <!--Data of flowers (Image, Name, Price) and button (Delete, Update)-->
-            <div class="card-deck d-flex justify-content-center">
+             <div class="card-deck d-flex justify-content-center">
                 @foreach($flowers as $f)
-                <a href="#">
+                <a href="{{ route('detail_product', ['id'=>$f->id]) }}">
                     <div class="card-deck">
+
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:390px; height:490px; margin:5px;">
+                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
-                                <h1 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h1>
-                                <h1 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h1>
-                            </div>  
+                                <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
+                                <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
+                            </div>
                         </div>
-                    </a>
+                        
                     </div>
+                </a>
                 @endforeach
             </div>
             {{$flowers->links()}}
@@ -112,17 +114,19 @@
             <!--Data of flowers (Image, Name, Price) and button (Delete, Update)-->
             <div class="card-deck d-flex justify-content-center">
                 @foreach($flowers as $f)
-                <a href="#">
+                <a href="{{ route('detail_product', ['id'=>$f->id]) }}">
                     <div class="card-deck">
+
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:390px; height:490px; margin:5px;">
+                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
-                                <h1 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h1>
-                                <h1 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h1>
-                            </div>    
+                                <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
+                                <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
+                            </div>
                         </div>
-                    </a>
+                        
                     </div>
+                </a>
                 @endforeach
             </div>
             {{$flowers->links()}}

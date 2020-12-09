@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
         User::insert([
             [
                 'role_id'=>'1',
-                'username'=>'Big Bezzos',
-                'email'=>'big@big.com',
-                'address'=>'Jalan dimana mana depan syahdan enal bous',
+                'username'=>'Big Boss',
+                'email'=>'big@gmail.com',
+                'address'=>'Jakarta Barat',
                 'gender'=>'male',
                 'dob'=>Carbon::today(),
                 'password'=>Hash::make('123123123'),
@@ -26,10 +26,10 @@ class UserSeeder extends Seeder
                 'updated_at'=>Carbon::now()
             ],
             [
-                'role_id'=>'2',
-                'username'=>'User Sedgirl',
-                'email'=>'asd@asd.com',
-                'address'=>'Jalan dimana mana depan syahdan enal bous',
+                'role_id'=>'1',
+                'username'=>'Any',
+                'email'=>'any@gmail.com',
+                'address'=>'Jakarta Selatan',
                 'gender'=>'female',
                 'dob'=>Carbon::today(),
                 'password'=>Hash::make('123123123'),

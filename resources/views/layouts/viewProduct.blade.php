@@ -56,7 +56,7 @@
                     <div class="card-deck">
 
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
+                            <img class="card-img-top" src="{{ asset($f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
                                 <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
                                 <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
@@ -88,14 +88,14 @@
         <!--Product View for Customer-->
         @elseif (Auth::user()->role->role_name === 'Customer')
 
-             <!--Data of flowers (Image, Name, Price) and button (Delete, Update)-->
+             <!--Data of flowers (Image, Name, Price)-->
              <div class="card-deck d-flex justify-content-center">
                 @foreach($flowers as $f)
                 <a href="{{ route('detail_product', ['id'=>$f->id]) }}">
                     <div class="card-deck">
 
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
+                            <img class="card-img-top" src="{{ asset( $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
                                 <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
                                 <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>

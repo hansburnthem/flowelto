@@ -22,9 +22,28 @@ class AddFlowerController extends Controller
     }
 
     //View Categories for Manager
-    public function addFlower() {
-        if($this->checkAccount()) return $this->checkAccount();
+    // public function addFlower() {
+    //     if($this->checkAccount()) return $this->checkAccount();
 
-        return view('manager.add-flower');
+    //     return view('manager.add-flower');
+    // }
+
+    public function FormAddFlower(){
+        $flower = Flower::with('category')->paginate();
+        $category=FlowerCategory::all();
+        return view('manager.add-flower',compact('flower','category'));
+    }
+
+
+    public function addFlower(Request $request){
+        $flower = Flower::with('category')->paginate();
+        $flower = Flower::create($request->all());
+        if($request->hasFile('flower_img')){
+            $request->file('flower_img')->move('assets/categories/',$request->file('flower_img')->getClientOriginalName());
+            $filenames= "assets/categories/";
+            $flower->flower_img = $filenames.$request->file('flower_img')->getClientOriginalName();
+            $flower->save();
+        }
+        return redirect('/');
     }
 }

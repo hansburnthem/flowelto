@@ -35,7 +35,8 @@ Route::get('/manager/categories','ManagerController@viewCategories')->name('mana
 Route::delete('/manager/categories','ManagerController@deleteCategory');
 
 //Add Category
-Route::get('/add/flower','AddFlowerController@addFlower')->name('add_flower');
+Route::get('/add/flower','AddFlowerController@FormAddFlower')->name('add_flower');
+Route::post('/create/flower','AddFlowerController@addFlower');
 
 Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('manager_categories_update');
 // Route::put('/manager/category/{id?}','ManagerController@updateCategory');

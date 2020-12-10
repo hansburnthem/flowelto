@@ -23,7 +23,7 @@
             <a href="{{URL('viewProduct/' . $category->id)}}">
                 <div class="card-deck">
                     <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                        <img class="card-img-top rounded-2xl" src="{{ $category->category_img }}" style="width:330px; height:430px; margin:5px;">
+                        <img class="card-img-top rounded-2xl" src="{{ asset($category->category_img) }}" style="width:330px; height:430px; margin:5px;">
                         <div class="card-body">
                             <h3 class="card-title" style="text-align:center; color: black;">{{ $category->category_name }}</h3>
                         </div>

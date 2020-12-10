@@ -17,7 +17,7 @@
     <div class="d-flex bd-highlight mb-4" style="">
         <div class="d-flex flex-row ml-3" style="margin:30px;">
             <div class="p-2 bd-highlight">
-                <img class="card-img-top" src="{{ asset('storage/'. $data_to_print->flower_img) }}" style="width:390px; height:500px; margin:5px;">
+                <img class="card-img-top" src="{{ asset($data_to_print->flower_img) }}" style="width:390px; height:500px; margin:5px;">
             </div> 
             <div class="ml-auto p-2 bd-highlight">
                 <div class="d-flex flex-row">

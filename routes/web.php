@@ -35,8 +35,8 @@ Route::get('/manager/categories','ManagerController@viewCategories')->name('mana
 Route::delete('/manager/categories','ManagerController@deleteCategory');
 
 //Add Category
-Route::get('/add/flower','AddFlowerController@FormAddFlower')->name('add_flower');
-Route::post('/create/flower','AddFlowerController@addFlower');
+Route::get('/add/flower','ManagerController@FormAddFlower')->name('add_flower');
+Route::post('/create/flower','ManagerController@addFlower');
 
 Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('manager_categories_update');
 // Route::put('/manager/category/{id?}','ManagerController@updateCategory');
@@ -45,16 +45,19 @@ Route::get('/manager/category/{id?}','ManagerController@viewCategory')->name('ma
 Route::get('/manager/category/{id}', 'ManagerController@updateFormCategories')->name('updateCategories');
 Route::post('/manager/category/{id}', 'ManagerController@updateCategory')->name('updateFormCategories');
 
-//View Product
-Route::get('/viewProduct/{id}', 'ViewProductController@viewProduct')->name('view_product');
-Route::delete('/viewProduct/{id}', 'ViewProductController@deleteProduct');
+//View Flower
+Route::get('/viewProduct/{id}', 'HomeController@viewProduct')->name('view_product');
+Route::delete('/viewProduct/{id}', 'HomeController@deleteProduct');
 
-//Search Product
-Route::get('/viewProduct/{id}/cari', 'ViewProductController@cari')->name('search_product');
+//Search Flower
+Route::get('/viewProduct/{id}/cari', 'HomeController@cari')->name('search_product');
 
-//Detail Product
-Route::get('/detailProduct/{id}', 'FlowerDetailController@detailProduct')->name('detail_product');
+//Detail Flower
+Route::get('/detailProduct/{id}', 'HomeController@detailProduct')->name('detail_product');
 
-//Update Product
-Route::get('/viewProduct/edit/{id}','UpdateProductController@edit')->name('edit_product');
-Route::post('/viewProduct/update/{id}','UpdateProductController@update')->name('update_product');
+//Update Flower
+Route::get('/viewProduct/edit/{id}','ManagerController@edit')->name('edit_product');
+Route::post('/viewProduct/update/{id}','ManagerController@update')->name('update_product');
+
+//Delete Flower
+Route::get('/viewProduct/delete/{id}','ManagerController@delete')->name('delete_product');

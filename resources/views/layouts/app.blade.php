@@ -7,7 +7,7 @@
     $categories = \App\FlowerCategory::orderBy('category_name')->get();
 @endphp
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans p-1">
-    <div class="absolute left-0 right-0 top-5 mx-10 p-4 bg-pink-500 flex justify-between text-white rounded-2xl shadow-lg ">
+    <div class="absolute left-0 right-0 p-3 flex justify-between text-white rounded-2xl shadow-lg" style="background-color: rgb(255, 182, 195)">
         
         <div class="hidden md:flex items-center">
             <button id="categoryMenu" class="flex flex-row self-center focus:outline-none opacity-100 hover:opacity-50 focus:opacity-50 duration-300">
@@ -20,7 +20,7 @@
                     <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                         @if(count($categories))
                         @foreach($categories as $category)
-                        <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg">{{ $category->category_name }}</a>
+                        <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color: black">{{ $category->category_name }}</a>
                         @endforeach
                         @else
                         <p>There's no categories</p>
@@ -66,27 +66,27 @@
         <ul class="hidden md:flex items-center">
             @auth
                 <li class="px-2">
-                    <button class="text-green-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg shadow-lg" onclick="profileMenu()">
+                    <button class="text-pink-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg shadow-lg" onclick="profileMenu()">
                         {{ auth()->user()->username }}
                     </button>
                     <div id="mobile-nav3" class="hidden absolute right-20 w-auto top-16 text-sm text-center">
                         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div class="z-30 relative bg-white p-2 text-black flex flex-col">
                                 @if(auth()->user()->role->role_name == 'Manager')
-                                    <a href="#" class="text-lg text-green-500 border border-solid border-green-500 rounded-lg">Manager</a>
-                                    <a href="{{ route('add_flower') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg mt-1">Add Flower</a>
-                                    <a href="{{ route('manager_categories') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Manage Categories</a>
+                                    <a href="#" class="text-lg text-pink-500 border border-solid border-pink-500 rounded-lg" style="color:black" >Manager</a>
+                                    <a href="{{ route('add_flower') }}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg mt-1" style="color:black">Add Flower</a>
+                                    <a href="{{ route('manager_categories') }}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color:black">Manage Categories</a>
                                 @elseif(auth()->user()->role->role_name == 'Customer')
-                                    <a href="#" class="text-lg text-green-500 border border-solid border-green-500 rounded-lg">Customer</a>
-                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg mt-1">My Cart</a>
-                                    <a href="#" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Transaction History</a>
+                                    <a href="#" class="text-lg text-pink-500 border border-solid border-pink-500 rounded-lg" style="color:black">Customer</a>
+                                    <a href="#" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg mt-1" style="color:black">My Cart</a>
+                                    <a href="#" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color:black">Transaction History</a>
                                 @endif
-                                <a href="{{ route('change_password') }}" class="p-1 hover:bg-green-500 hover:text-white duration-300 rounded-lg">Change Password</a>
+                                <a href="{{ route('change_password') }}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color:black">Change Password</a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="pl-2">
+                <li class="px-2">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button class="focus:outline-none no-underline hover:underline hover:text-white-400 duration-300">logout</button>

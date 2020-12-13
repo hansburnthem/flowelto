@@ -62,17 +62,9 @@
                                 <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
                             </div>  
 
-                            <div class="card-footer d-flex justify-content-center margin">
-                                <!-----------------------------------------Masih error di DELTE DAN UPDATE------------------------------------------------>
-                                {{-- <form class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary"
-                                  action="{{ route('view_product', ['id'=>$f->id]) }}" method="post" onclick="this.submit()">
-                                @csrf
-                                @method('DELETE')
-                                <input type="hidden" name="id" value="{{ $f->id }}">
-                                    Delete
-                                </form> --}}
-
-                                <a href="/viewProduct/edit/{{$f->id}} " class="text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger">
+                            <div class="card-footer d-flex justify-content-center">
+                                <a href="/viewProduct/delete/{{$f->id}} " class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger">Delete Flower</a> <br>
+                                <a href="/viewProduct/edit/{{$f->id}} " class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary">
                                     Update
                                 </a>
                             </div> 

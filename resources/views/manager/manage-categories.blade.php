@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="card-footer d-flex justify-content-center margin">
-                            <form class="w-full p-2 bg-red-400 rounded-l-2xl hover:text-white cursor-pointer hover:opacity-90 duration-300 "
+                            <form class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger"
                                   action="{{ route('manager_categories')}}" method="post" onclick="this.submit()">
                                 @csrf
                                 @method('DELETE')
@@ -36,7 +36,7 @@
                                 Delete
                             </form>
 
-                            <a href="{{route('manager_categories_update', ['id'=>$category->id])}}" class="w-full p-2 bg-white rounded-r-2xl text-black cursor-pointer hover:opacity-90 duration-300 ">
+                            <a href="{{route('manager_categories_update', ['id'=>$category->id])}}" class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary">
                                 Update
                             </a>
                         </div> 

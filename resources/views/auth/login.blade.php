@@ -49,7 +49,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="bg-green-500 hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full">Login</button>
+                    <button type="submit" class="bg-pink-500 hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full">Login</button>
                 </div>
             </form>
         </div>

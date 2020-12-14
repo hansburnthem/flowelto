@@ -18,36 +18,34 @@
     <h1 names="category" style="text-align: center;" class="text-center text-5xl mb-5 italic underline font-serif">Our {{ $category->category_name }} (Gift)</h1>
 
     <!--Form for select flower and search products-->
-    <div class="container">
         <div class="row justify-content-start">
-            <div class="col-2">
-                <td class="align-baseline">
-                </div>
-
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Flowers
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <div class="d-flex flex-column">
-                    @foreach($flowers as $f)
-                        <a href="{{ route('detail_product', ['id'=>$f->id]) }}" style="font-size: 15px; color: black; margin:10px;">{{ $f->flower_name }}</a>
-                    @endforeach
+            <div>
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Flowers
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex flex-column">
+                        @foreach($flowers as $f)
+                            <a href="{{ route('detail_product', ['id'=>$f->id]) }}" style="font-size: 15px; color: rgb(93, 37, 71); margin:10px;">{{ $f->flower_name }}</a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
 
-                
-            <form action="{{URL('viewProduct/' . $category->id .'/cari')}}" method="GET">
-                <input type="text" name="cari" placeholder="Search" value="{{ old('cari') }}">
-                <input type="submit" value="CARI">
-            </form>
+            <div>
+                <form action="{{URL('viewProduct/' . $category->id .'/cari')}}" method="GET">
+                    <input class="form-control" type="text" name="cari" placeholder="Search" value="{{ old('cari') }}"> <br>
+                    <input type="submit" value="Search" class="btn btn-outline-primary">
+                </form>
+            </div>
+            
         </div>
-    </div>
 
 
     @if(Auth::user())
     
     <!--Product View for Manager-->
-    @if(Auth::user()->role->role_name === 'Manager')
+        @if(Auth::user()->role->role_name === 'Manager')
 
             <!--Data of flowers (Image, Name, Price) and button (Delete, Update)-->
             <div class="card-deck d-flex justify-content-center">
@@ -58,8 +56,8 @@
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
                             <img class="card-img-top" src="{{ asset($f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
-                                <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
-                                <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
+                                <h3 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">{{ $f->flower_name }}</h3>
+                                <h5 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">Rp {{ $f->flower_price }}</h5>
                             </div>  
 
                             <div class="card-footer d-flex justify-content-center">
@@ -89,8 +87,8 @@
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
                             <img class="card-img-top" src="{{ asset( $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
-                                <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
-                                <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
+                                <h3 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">{{ $f->flower_name }}</h3>
+                                <h5 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">Rp {{ $f->flower_price }}</h5>
                             </div>
                         </div>
                         
@@ -112,8 +110,8 @@
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
                             <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
-                                <h3 class="card-title" style="text-align:center; color: black;">{{ $f->flower_name }}</h3>
-                                <h5 class="card-title" style="text-align:center; color: black;">Rp {{ $f->flower_price }}</h5>
+                                <h3 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">{{ $f->flower_name }}</h3>
+                                <h5 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">Rp {{ $f->flower_price }}</h5>
                             </div>
                         </div>
                         

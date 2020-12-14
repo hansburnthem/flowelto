@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ManagerController extends Controller
 {
+//-------------------------------------------------MANAGER AUTHENTICATION--------------------------------------------------------------    
     //Middleware for Auth
     public function __construct()
     {

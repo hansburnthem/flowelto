@@ -58,7 +58,7 @@
                 <div class="mb-4 mr-2 text-center flex flex-col">
                     <span class="text-red-400 mb-2"><b>Gender</b></span>
 
-                    <label for="gender">Select Gender</label>
+                    {{-- <label for="gender">Select Gender</label> --}}
                     <select name="gender" id="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -96,7 +96,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="bg-green-500 hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full">Register</button>
+                    <button type="submit" class=" hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full" style="background-color: rgb(255, 176, 189)">Register</button>
                 </div>
             </form>
         </div>

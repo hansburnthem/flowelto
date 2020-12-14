@@ -95,8 +95,7 @@
                                 </span> <br>
 
                                 <div class="btn-area">
-                                    <a href="#" 
-                                        class="btn btn-primary btn-block">Add to cart 
+                                    <a href="#" class="btn btn-primary btn-block">Add to cart 
                                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                                     </a>
                                 </div>

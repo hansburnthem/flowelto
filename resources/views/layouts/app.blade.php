@@ -6,29 +6,12 @@
 @php
     $categories = \App\FlowerCategory::orderBy('category_name')->get();
 @endphp
+
+
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans p-1">
+    <!--Navbar-->
     <div class="absolute left-0 right-0 p-3 flex justify-between text-white rounded-2xl shadow-lg" style="background-color: rgb(255, 182, 195)">
-        
-        <div class="hidden md:flex items-center">
-            <button id="categoryMenu" class="flex flex-row self-center focus:outline-none opacity-100 hover:opacity-50 focus:opacity-50 duration-300">
-                categories
-                @component ('components.icons', ['icon' => 'arrow-down', 'size'=>'4', 'hidden' => false])
-                @endcomponent
-            </button>
-            <div id="mobile-nav2" class="hidden absolute left-0 w-auto top-16 text-sm text-center">
-                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div class="z-30 relative bg-white p-2 text-black flex flex-col">
-                        @if(count($categories))
-                        @foreach($categories as $category)
-                        <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color: black">{{ $category->category_name }}</a>
-                        @endforeach
-                        @else
-                        <p>There's no categories</p>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!--TItle-->
         <div class="self-center">
             <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black font-serif" style="color:white"><b>Flowelto Shop</b></a>
@@ -63,48 +46,100 @@
                 </div>
             </div>
         </button>
+
         <ul class="hidden md:flex items-center">
+
+            <!--Category-->
+            <div class="hidden md:flex items-center">
+                <button id="categoryMenu" class="flex flex-row self-center focus:outline-none opacity-100 hover:opacity-50 focus:opacity-50 duration-300 mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                    categories
+                    @component ('components.icons', ['icon' => 'arrow-down', 'size'=>'4', 'hidden' => false])
+                    @endcomponent
+                </button>
+                <div id="mobile-nav2" class="hidden absolute left-auto w-auto top-16 text-sm text-center">
+                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <div class="z-30 relative p-2 text-black flex flex-col " style="color: pink">
+                            @if(count($categories))
+                            @foreach($categories as $category)
+                            <a href="{{URL('viewProduct/'. $category->id)}}" class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg" style="color: black">{{ $category->category_name }}</a>
+                            @endforeach
+                            @else
+                            <p>There's no categories</p>
+                            @endif
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!--User Authentication to display navigation bar-->
             @auth
                 <li class="px-2">
-                    <button class="text-pink-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg shadow-lg" onclick="profileMenu()">
+                    <button class="text-pink-500 opacity-100 hover:opacity-50 focus:opacity-50 duration-300 cursor-pointer focus:outline-none p-1 bg-white rounded-lg shadow-lg mx-1 p-2 rounded-lg font-medium w-full shadow-sm" onclick="profileMenu()">
                         {{ auth()->user()->username }}
                     </button>
-                    <div id="mobile-nav3" class="hidden absolute right-20 w-auto top-16 text-sm text-center">
-                        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div class="z-30 relative bg-white p-2 text-black flex flex-col">
+                    <div id="mobile-nav3" class="hidden absolute right-auto w-auto top-16 text-sm text-center">
+                        <div class="rounded-lg shadow-lg ring-auto ring-black ring-opacity-5 overflow-hidden">
+                            <div class="z-30 relative p-2 text-black flex flex-col">
+
+                                <!--Navbar for Manager-->
                                 @if(auth()->user()->role->role_name == 'Manager')
-                                    <a href="#" class="text-lg text-pink-500 border border-solid border-pink-500 rounded-lg" style="color:black" >Manager</a>
-                                    <a href="{{ route('add_flower') }}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg mt-1" style="color:black">Add Flower</a>
-                                    <a href="{{ route('manager_categories') }}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color:black">Manage Categories</a>
-                                @elseif(auth()->user()->role->role_name == 'Customer')
-                                    <a href="#" class="text-lg text-pink-500 border border-solid border-pink-500 rounded-lg" style="color:black">Customer</a>
-                                    <a href="#" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg mt-1" style="color:black">My Cart</a>
-                                    <a href="#" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color:black">Transaction History</a>
-                                @endif
-                                <a href="{{ route('change_password') }}" class="p-1 hover:bg-pink-500 hover:text-white duration-300 rounded-lg" style="color:black">Change Password</a>
+                                    <a class="text-lg text-pink-300 border border-solid border-pink-300 rounded-lg" style="color:black" >Manager</a>
+                                    <a href="{{ route('add_flower') }}" class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg mt-1" style="color:black">Add Flower</a>
+                                    <a href="{{ route('manager_categories') }}" class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg" style="color:black">Manage Categories</a>
+                                    <!--Navbar for Customer-->
+                                    @elseif(auth()->user()->role->role_name == 'Customer')
+                                    <a class="text-lg text-pink-300 border border-solid border-pink-300 rounded-lg" style="color:black">Customer</a>
+                                    <a href="#" class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg mt-1" style="color:black">My Cart</a>
+                                    <a href="#" class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg" style="color:black">Transaction History</a>
+                                    @endif
+                                    <a href="{{ route('change_password') }}" method="post" class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg" style="color:black">Change Password</a>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button class="p-1 hover:bg-pink-300 hover:text-white duration-300 rounded-lg mt-1">logout</button>
+                                    </form>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="px-2">
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button class="focus:outline-none no-underline hover:underline hover:text-white-400 duration-300">logout</button>
-                    </form>
+                {{-- <li class="px-2">
+                    <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button class="focus:outline-none no-underline hover:underline hover:text-white-400 duration-300">logout</button>
+                        </form>
+                    </div>
+                </li> --}}
+                <li class="pl-2">
+                    <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                        <span style="font-size: 15px; color: rgb(255, 255, 255);" class="ml-3">{{date ('D, d M Y')}}</span>
+                    </div>
                 </li>
             @endauth
+
+            <!--Navbar for Guest-->
             @guest
-                <li class="px-2">
-                    <a href="{{ route('login') }}" class="no-underline hover:underline" style="color:white" >login</a>
+                <li class="px-1 ">
+                    <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                        <a href="{{ route('login') }}" class="no-underline hover:underline" style="color:white" >login</a>
+                    </div>
                 </li>
                 <li class="pl-2">
-                    <a href="{{ route('register') }}" class="no-underline hover:underline hover:text-white-400 duration-300" style="color:white">register</a>
+                    <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                        <a href="{{ route('register') }}" class="no-underline hover:underline hover:text-white-400 duration-300" style="color:white">register</a>
+                    </div>
+                </li>
+                <li class="pl-2">
+                    <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
+                        <span style="font-size: 15px; color: rgb(255, 255, 255);" class="ml-3">{{date ('D, d M Y')}}</span>
+                    </div>
                 </li>
             @endguest
         </ul>
     </div>
-    <div id="contentId" class="mt-32 md:mt-28 flex flex-col items-center">
 
+    <!--Style-->
+    <div id="contentId" class="mt-32 md:mt-28 flex flex-col items-center">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -113,7 +148,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
 
         @yield('content')
     </div>

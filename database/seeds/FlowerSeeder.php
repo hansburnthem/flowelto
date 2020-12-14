@@ -17,195 +17,195 @@ class FlowerSeeder extends Seeder
         //-----------------------HAND BOUQUET---------------------------
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 1',
-            'flower_price' => '10000',
-            'flower_desc' => 'Hand 1',
+            'flower_name' => 'Beauty Roses',
+            'flower_price' => '305000',
+            'flower_desc' => 'Roses is a favorite flower to give',
             'flower_img' => 'assets/categories/hands/hand_1.jpg/'
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 2',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 2',
+            'flower_name' => 'Rouge Eclatant',
+            'flower_price' => '540000',
+            'flower_desc' => 'Rouge Eclatant is the best flower for your parent',
             'flower_img' => 'assets/categories/hands/hand_2.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 3',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 3',
+            'flower_name' => 'Purple Floe',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/hands/hand_3.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 4',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 4',
+            'flower_name' => 'Fleurs Joyeuses',
+            'flower_price' => '700000',
+            'flower_desc' => 'Flower for your little sister or brother :)',
             'flower_img' => 'assets/categories/hands/hand_4.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 5',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 5',
-            'flower_img' => 'assets/categories/hands/hand_5.jpg/',
+            'flower_name' => 'Lamour Vrai',
+            'flower_price' => '290000',
+            'flower_desc' => 'Full of love for your love',
+            'flower_img' => 'assets/categories/hands/hand_1.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 6',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 6',
+            'flower_name' => 'Rainbow Floe',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/hands/hand_3.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 7',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 7',
+            'flower_name' => 'Fleurs Mignonnes',
+            'flower_price' => '700000',
+            'flower_desc' => 'Flower for your little sister or brother :)',
             'flower_img' => 'assets/categories/hands/hand_4.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '1',
-            'flower_name' => 'Hand 8',
-            'flower_price' => '1000000',
-            'flower_desc' => 'Hand 8',
+            'flower_name' => 'Lamour',
+            'flower_price' => '290000',
+            'flower_desc' => 'Full of love for your love',
             'flower_img' => 'assets/categories/hands/hand_5.jpg/',
         ]);
 
         //-----------------------WEDDING BOUQUET---------------------------
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 1',
-            'flower_price' => '2000000',
-            'flower_desc' => 'Wedding 1',
+            'flower_name' => 'Beauty Roses',
+            'flower_price' => '355000',
+            'flower_desc' => 'Roses is a favorite flower to give',
             'flower_img' => 'assets/categories/wedding/wedding_1.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 2',
-            'flower_price' => '2000000',
-            'flower_desc' => 'Wedding 2',
+            'flower_name' => 'Magie Magique',
+            'flower_price' => '540000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/wedding/wedding_2.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 3',
-            'flower_price' => '20000',
-            'flower_desc' => 'Wedding 3',
+            'flower_name' => 'Yellow Floe',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/wedding/wedding_3.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 4',
-            'flower_price' => '20000',
-            'flower_desc' => 'Wedding 4',
+            'flower_name' => 'Captivers',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/wedding/wedding_4.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 5',
-            'flower_price' => '20000',
-            'flower_desc' => 'Wedding 5',
+            'flower_name' => 'Magic Magiq',
+            'flower_price' => '540000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/wedding/wedding_5.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 6',
-            'flower_price' => '20000',
-            'flower_desc' => 'Wedding 6',
+            'flower_name' => 'Yellow Floe',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/wedding/wedding_3.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 7',
-            'flower_price' => '20000',
-            'flower_desc' => 'Wedding 7',
+            'flower_name' => 'Beauty Roses',
+            'flower_price' => '305000',
+            'flower_desc' => 'Roses is a favorite flower to give',
             'flower_img' => 'assets/categories/wedding/wedding_4.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '2',
-            'flower_name' => 'Wedding 8',
-            'flower_price' => '20000',
-            'flower_desc' => 'Wedding 8',
+            'flower_name' => 'Magie Magique',
+            'flower_price' => '540000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/wedding/wedding_5.jpg/',
         ]);
 
         //-----------------------STANDING FLOWERS---------------------------
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 1',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 1',
+            'flower_name' => 'Beauty Roses',
+            'flower_price' => '505000',
+            'flower_desc' => 'Roses is a favorite flower to give',
             'flower_img' => 'assets/categories/stands/stand_1.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 2',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 2',
+            'flower_name' => 'Magie Magique',
+            'flower_price' => '642000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/stands/stand_2.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 3',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 3',
+            'flower_name' => 'Captivers',
+            'flower_price' => '715000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/stands/stand_3.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 4',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 4',
+            'flower_name' => 'Yellow Fls',
+            'flower_price' => '629000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/stands/stand_4.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 5',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 5',
+            'flower_name' => 'Blue Magic',
+            'flower_price' => '321000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/stands/stand_5.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 6',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 6',
-            'flower_img' => 'assets/categories/stands/stand_3.jpg',
+            'flower_name' => 'Magie Magique',
+            'flower_price' => '642000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
+            'flower_img' => 'assets/categories/stands/stand_2.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 7',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 7',
+            'flower_name' => 'Yellow Fls',
+            'flower_price' => '629000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/stands/stand_4.jpg',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '3',
-            'flower_name' => 'Standing 8',
-            'flower_price' => '20000',
-            'flower_desc' => 'Standing 8',
+            'flower_name' => 'Blue Magic',
+            'flower_price' => '321000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/stands/stand_5.jpg',
         ]);
 
@@ -213,65 +213,65 @@ class FlowerSeeder extends Seeder
         //-----------------------BASKET FLOWERS---------------------------
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 1',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 1',
-            'flower_img' => 'assets/categories/basket/basket_1.jpg/',
+            'flower_name' => 'Red n White',
+            'flower_price' => '305000',
+            'flower_desc' => 'Red and White is a favorite flower to give',
+            'flower_img' => 'assets/categories/basket/basket_1.jpg/'
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 2',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 2',
+            'flower_name' => 'Blue Magic',
+            'flower_price' => '540000',
+            'flower_desc' => 'Blue Magic is the best flower for your parent',
             'flower_img' => 'assets/categories/basket/basket_2.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 3',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 3',
+            'flower_name' => 'Rainbow Floe',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/basket/basket_3.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 4',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 4',
+            'flower_name' => 'Fleurs Mign',
+            'flower_price' => '700000',
+            'flower_desc' => 'Flower for your little sister or brother :)',
             'flower_img' => 'assets/categories/basket/basket_4.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 5',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 5',
+            'flower_name' => 'Lamour vrai',
+            'flower_price' => '290000',
+            'flower_desc' => 'Full of love for your love',
             'flower_img' => 'assets/categories/basket/basket_5.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 6',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 6',
+            'flower_name' => 'Rainbow Floe',
+            'flower_price' => '740000',
+            'flower_desc' => 'A sprinkling of loving color to your partner',
             'flower_img' => 'assets/categories/basket/basket_3.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 7',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 7',
+            'flower_name' => 'Fleurs Mignonnes',
+            'flower_price' => '700000',
+            'flower_desc' => 'Flower for your little sister or brother :)',
             'flower_img' => 'assets/categories/basket/basket_4.jpg/',
         ]);
 
         DB::table('flowers')->insert([
             'flower_category_id' => '4',
-            'flower_name' => 'Basket 8',
-            'flower_price' => '20000',
-            'flower_desc' => 'Basket 8',
+            'flower_name' => 'Lamour vrai',
+            'flower_price' => '290000',
+            'flower_desc' => 'Full of love for your love',
             'flower_img' => 'assets/categories/basket/basket_5.jpg/',
         ]);
     }

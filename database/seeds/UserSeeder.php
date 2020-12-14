@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'updated_at'=>Carbon::now()
             ],
             [
-                'role_id'=>'1',
+                'role_id'=>'2',
                 'username'=>'Any',
                 'email'=>'any@gmail.com',
                 'address'=>'Jakarta Selatan',

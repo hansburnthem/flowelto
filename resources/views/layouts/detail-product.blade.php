@@ -103,7 +103,7 @@
                                         <input class="form-control" name="qty" type="number" min="1" value="1">
                                     </span> <br>
                                     <!--Add to cart button-->
-                                    <a href="/register">
+                                    <a href="/login">
                                         <button class="btn-area btn btn-primary btn-block" type="submit">
                                             Add to cart
                                         </button>

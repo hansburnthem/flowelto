@@ -37,11 +37,11 @@
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="id" value="{{ $category->id }}">
-                                Delete
+                                Delete Category
                             </form>
                             <!--Update Button-->
                             <a href="{{route('manager_categories_update', ['id'=>$category->id])}}" class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary">
-                                Update
+                                Update Category
                             </a>
                         </div> 
                     </div>       

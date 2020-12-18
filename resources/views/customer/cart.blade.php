@@ -37,7 +37,7 @@
                             <input name="qty" id="qty" type="number" value="{{ $cart->qty }}" class="ml-5">
                             <input name="flower_id" id="flower_id" type="hidden" value="{{ $cart->flower_id }}" class="ml-5">
                             <!--Update button-->
-                            <button type="submit" class=" hover:opacity-80 duration-300 text-white px-3 py-2 rounded-xl font-medium bg-green-400 ml-2">update</button>
+                            <button type="submit" class=" hover:opacity-80 duration-300 text-white px-3 py-2 rounded-xl font-medium bg-green-400 ml-2">Update</button>
                         </form>
                     </td>
                 </tr>
@@ -46,7 +46,7 @@
         @endforeach
         <!--If the cart is not null, user can use checkout button-->
         @if(count($carts) != 0)
-            <a href="{{ route('checkout_cart') }}" class="text-center hover:opacity-80 duration-300 text-white px-3 py-2 rounded-xl font-medium bg-pink-300 ml-2 mb-5">checkout</a>
+            <a href="{{ route('checkout_cart') }}" class="text-center hover:opacity-80 duration-300 text-white px-3 py-2 rounded-xl font-medium bg-pink-300 ml-2 mb-5"> <h3>Checkout</h3></a>
         @endif
     </div>
 @endsection

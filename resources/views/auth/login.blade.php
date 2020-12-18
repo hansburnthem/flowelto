@@ -52,13 +52,6 @@
                     <button type="submit" class=" hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full" style="background-color: rgb(255, 176, 189)">Login</button>
                 </div>
 
-                <br>
-                <div class="mb-4">
-                    <div class="flex items-center">
-                        <a href="#">Forgot Your Password?</a>
-                    </div>
-                </div>
-                
             </form>
         </div>
     </div>

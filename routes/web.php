@@ -54,6 +54,7 @@ Route::get('/viewProduct/{id}/cari', 'HomeController@cari')->name('search_produc
 
 //Detail Flower
 Route::get('/detailProduct/{id}', 'HomeController@detailProduct')->name('detail_product');
+Route::post('/detailProduct/{id}', 'HomeController@addToCart');
 
 //Update Flower
 Route::get('/viewProduct/edit/{id}','ManagerController@edit')->name('edit_product');
@@ -61,3 +62,14 @@ Route::post('/viewProduct/update/{id}','ManagerController@update')->name('update
 
 //Delete Flower
 Route::get('/viewProduct/delete/{id}','ManagerController@delete')->name('delete_product');
+
+// Cart
+Route::get('/carts', 'UserController@viewCart')->name('view_cart');
+Route::put('/carts', 'UserController@updateCart');
+Route::get('/carts/checkout', 'UserController@checkoutCart')->name('checkout_cart');
+
+// transaction history
+Route::get('/transactions','UserController@viewTransactions')->name('view_transactions');
+
+// detail transaction history
+Route::get('/transaction/{id}','UserController@viewDetailTransaction')->name('view_detail_transaction');

@@ -20,13 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="500e20ef-8990-4cd2-a789-6fac545c2534" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ChangePassword.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/change-password.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_142424_create_carts_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/cart.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/detailTransaction.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/transaction.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TransactionDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TransactionDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/detail-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/detail-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/viewProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/viewProduct.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,10 +177,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/app/assets/categories" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="discord-application" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/app/assets/categories" />
+      <recent name="$PROJECT_DIR$/storage/app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/customer" />
+      <recent name="$PROJECT_DIR$/storage/app/public" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -195,7 +212,11 @@
       <workItem from="1606823094161" duration="45000" />
       <workItem from="1606874042371" duration="179000" />
       <workItem from="1606874307244" duration="296000" />
-      <workItem from="1606874777253" duration="30160000" />
+      <workItem from="1606874777253" duration="52171000" />
+      <workItem from="1607061340244" duration="963000" />
+      <workItem from="1607836034130" duration="94000" />
+      <workItem from="1608008341571" duration="12924000" />
+      <workItem from="1608251160166" duration="3957000" />
     </task>
     <task id="LOCAL-00001" summary="feat: refactor database structure and create model">
       <created>1606541670980</created>
@@ -211,7 +232,28 @@
       <option name="project" value="LOCAL" />
       <updated>1606571512749</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: navbar almost complete">
+      <created>1606926881021</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606926881021</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: add seeder">
+      <created>1607042066645</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607042066645</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: add feature for manager role [Update &amp; Delete]">
+      <created>1607042103558</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607042103558</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +276,10 @@
     <MESSAGE value="feat: refactor database structure and create model" />
     <MESSAGE value="feat: create layout template using tailwind.css" />
     <MESSAGE value="feat: fix ui template" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: fix ui template" />
+    <MESSAGE value="feat: navbar almost complete" />
+    <MESSAGE value="feat: add seeder" />
+    <MESSAGE value="feat: add feature for manager role [Update &amp; Delete]" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add feature for manager role [Update &amp; Delete]" />
   </component>
   <component name="WindowStateProjectService">
     <state x="514" y="335" key="#Composer" timestamp="1606536403048">
@@ -245,10 +290,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606542833009" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606924753706">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608130355799">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606924753706" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1608130355799" />
     <state x="458" y="369" key="ComposerInitDialogKey" timestamp="1606874598408">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -257,10 +302,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606874323572" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606926031956">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1608261362521">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606926031956" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1608261362521" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/1440.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1606556749569" />
   </component>
 </project>

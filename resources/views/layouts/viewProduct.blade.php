@@ -13,7 +13,7 @@
             Session::forget('status');
         @endphp
     @endif
-    
+
     <!--Title-->
     <h1 names="category" style="text-align: center;" class="text-center text-5xl mb-5 italic underline font-serif">Our {{ $category->category_name }} (Gift)</h1>
 
@@ -38,12 +38,12 @@
                     <input type="submit" value="Search" class="btn btn-outline-primary">
                 </form>
             </div>
-            
+
         </div>
 
 
     @if(Auth::user())
-    
+
     <!--Product View for Manager-->
         @if(Auth::user()->role->role_name === 'Manager')
 
@@ -58,16 +58,16 @@
                             <div class="card-body">
                                 <h3 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">{{ $f->flower_name }}</h3>
                                 <h5 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">Rp {{ $f->flower_price }}</h5>
-                            </div>  
+                            </div>
 
                             <div class="card-footer d-flex justify-content-center">
                                 <a href="/viewProduct/delete/{{$f->id}} " class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger">Delete Flower</a> <br>
                                 <a href="/viewProduct/edit/{{$f->id}} " class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary">
                                     Update
                                 </a>
-                            </div> 
+                            </div>
                         </div>
-                        
+
                     </div>
                 </a>
                 @endforeach
@@ -91,7 +91,7 @@
                                 <h5 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">Rp {{ $f->flower_price }}</h5>
                             </div>
                         </div>
-                        
+
                     </div>
                 </a>
                 @endforeach
@@ -108,13 +108,13 @@
                     <div class="card-deck">
 
                         <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
-                            <img class="card-img-top" src="{{ asset('storage/'. $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
+                            <img class="card-img-top" src="{{ asset( $f->flower_img) }}" style="width:330px; height:430px; margin:5px;">
                             <div class="card-body">
                                 <h3 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">{{ $f->flower_name }}</h3>
                                 <h5 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">Rp {{ $f->flower_price }}</h5>
                             </div>
                         </div>
-                        
+
                     </div>
                 </a>
                 @endforeach

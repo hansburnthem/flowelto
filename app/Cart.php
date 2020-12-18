@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TransactionDetail extends Model
+class Cart extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'transaction_details';
+    protected $table = 'carts';
 
     /**
      * The primary key associated with the table.
@@ -26,11 +26,11 @@ class TransactionDetail extends Model
      * @var array
      */
     protected $fillable = [
-        'transaction_id', 'flower_id', 'qty'
+        'user_id', 'flower_id', 'qty'
     ];
 
-    public function transaction() {
-        return $this->belongsTo(Transaction::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     public function flower() {

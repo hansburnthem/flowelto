@@ -45,7 +45,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="bg-green-500 hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full">Change Password</button>
+                    <button type="submit" class="hover:opacity-80 duration-300 text-white px-4 py-3 rounded-xl font-medium w-full" style="background-color: rgb(255, 176, 189)">Change Password</button>
                 </div>
             </form>
         </div>

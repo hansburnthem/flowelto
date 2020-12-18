@@ -12,11 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Home Page
 Route::get('/', 'HomeController@index')->name('home');
-
-// Route Authentication for user
-Route::post('/logout', 'Auth\LogoutController@store')->name('logout');
 
 //Login
 Route::get('/login', 'Auth\LoginController@index')->name('login');
@@ -25,6 +22,9 @@ Route::post('/login', 'Auth\LoginController@store');
 //Register
 Route::get('/register', 'Auth\RegisterController@index')->name('register');
 Route::post('/register', 'Auth\RegisterController@store');
+
+//Logout
+Route::post('/logout', 'Auth\LogoutController@store')->name('logout');
 
 // Change password for user
 Route::get('/password','Auth\ChangePassword@index')->name('change_password');

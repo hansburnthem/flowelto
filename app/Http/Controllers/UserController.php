@@ -14,7 +14,7 @@ class UserController extends Controller
         $this->middleware(['auth']);
     }
 
-    //Acount must be Manager
+    //Acount must be Customer
     public function checkAccount() {
         if(auth()->user()->role_id != 2) return redirect()->route('home')->with('status','[err] Please login with user account');
     }
@@ -48,7 +48,7 @@ class UserController extends Controller
         }
 
         Cart::where('user_id',auth()->user()->id)->delete();
-        return redirect()->route('home')->with('status','[scc] Checkout success');
+        return redirect()->route('view_transactions')->with('status','[scc] Checkout success');
     }
 
     // update cart

@@ -102,14 +102,6 @@
                         </div>
                     </div>
                 </li>
-                {{-- <li class="px-2">
-                    <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
-                        <form action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <button class="focus:outline-none no-underline hover:underline hover:text-white-400 duration-300">logout</button>
-                        </form>
-                    </div>
-                </li> --}}
                 <li class="pl-2">
                     <div class="mx-1 text-white p-2 rounded-lg font-medium w-full shadow-sm">
                         <span style="font-size: 15px; color: rgb(255, 255, 255);" class="ml-3">{{date ('D, d M Y')}}</span>
@@ -165,11 +157,9 @@
     document.getElementById('hamburgerMenu').addEventListener('click', function () {
         if (document.getElementById('mobile-nav').classList.contains('hidden')){
             document.getElementById('mobile-nav').classList.remove('hidden');
-            // document.getElementById('contentId').classList.remove('mt-32','md:mt-28');
         }
         else {
             document.getElementById('mobile-nav').classList.add("hidden");
-            // document.getElementById('contentId').classList.add('mt-32','md:mt-28');
         }
     });
 

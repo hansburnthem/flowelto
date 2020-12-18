@@ -33,7 +33,7 @@ class ManagerController extends Controller
         return view('manager.manage-categories',['categories'=>$categories]);
     }
 
-    //View Category for all user
+    //Update Categories
     public function viewCategory($id) {
         if($this->checkAccount()) return $this->checkAccount();
 
@@ -147,8 +147,6 @@ class ManagerController extends Controller
         $flower = Flower::find($id);
         $flower->delete($flower);
         return redirect('/');
-    }
-
-    
+    }   
 
 }

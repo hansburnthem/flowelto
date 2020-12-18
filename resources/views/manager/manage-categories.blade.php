@@ -19,15 +19,19 @@
 
         <div class="card-deck d-flex justify-content-center">
             @if(count($categories))
+            <!--Looping data in Category-->
             @foreach($categories as $category)
                 <div class="card-deck">
+                    <!--Display Category Image-->
                     <div class="card" style="margin:30px; background-color:rgb(245, 215, 220);">
                         <img class="card-img-top rounded-2xl" src="{{ asset($category->category_img) }}" style="width:330px; height:430px; margin:5px;">
                         <div class="card-body">
+                            <!--Display Category Name-->
                             <h3 class="card-title" style="text-align:center; color: rgb(93, 37, 71);">{{ $category->category_name }}</h3>
                         </div>
 
                         <div class="card-footer d-flex justify-content-center margin">
+                            <!--Delete Button-->
                             <form class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-danger"
                                   action="{{ route('manager_categories')}}" method="post" onclick="this.submit()">
                                 @csrf
@@ -35,7 +39,7 @@
                                 <input type="hidden" name="id" value="{{ $category->id }}">
                                 Delete
                             </form>
-
+                            <!--Update Button-->
                             <a href="{{route('manager_categories_update', ['id'=>$category->id])}}" class="w-full text-black cursor-pointer hover:opacity-90 duration-300 btn btn-primary">
                                 Update
                             </a>
@@ -44,6 +48,7 @@
                 </div>
             @endforeach
             @else
+                <!--If no category print theres no categories-->
                 <p>There's no categories</p>
             @endif
         </div>

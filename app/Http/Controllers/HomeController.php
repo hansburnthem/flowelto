@@ -18,7 +18,6 @@ class HomeController extends Controller
     //Detail Product
     public function detailProduct($id){
         $detail = Flower::where('id', $id) -> first();
-//        dd(asset($detail->flower_img));
         return view('layouts.detail-product') -> with('detail', $detail);
     }
 
@@ -70,7 +69,7 @@ class HomeController extends Controller
             $cart->qty = $qty;
             $cart->save();
 
-            return redirect()->route('home')->with('status','[scc] Success add to cart');
+            return redirect()->route('view_cart')->with('status','[scc] Success add to cart');
         }
 
         Cart::create([
@@ -79,7 +78,7 @@ class HomeController extends Controller
             'qty'=>$request->qty
         ]);
 
-        return redirect()->route('home')->with('status','[scc] Success add to cart');
+        return redirect()->route('view_cart')->with('status','[scc] Success add to cart');
     }
 
 

@@ -16,37 +16,10 @@
         <div class="self-center">
             <a href="/" class="no-underline hover:underline text-xl italic duration-300 hover:text-black font-serif" style="color:white"><b>Flowelto Shop</b></a>
         </div>
-        <button id="hamburgerMenu" class="block md:hidden z-20 focus:outline-none">
-            @component ('components.icons', ['icon' => 'hamburger-menu', 'size'=>'6','hidden' => false])
+        <button id="floweltoMenu" class="block md:hidden z-20 focus:outline-none">
+            @component ('components.icons', ['icon' => 'flower-menu', 'size'=>'6','hidden' => false])
             @endcomponent
-            <div id="mobile-nav" class="hidden absolute w-full right-0 top-16 text-sm">
-                <div class="overflow-hidden">
-                    <div class="z-30 flex flex-row text-black ">
-                        @auth
-                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full">
-                                <a href="#">{{ auth()->user()->username }}</a>
-                            </div>
-                            <form action="{{ route('logout') }}" method="post" id="logoutForm" class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
-                                @csrf
-                                <a id="logoutButton">Logout</a>
-                            </form>
-                        @endauth
-                        @guest
-                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
-                                <a href="{{ route('login') }}">Login</a>
-                            </div>
-                            <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
-                                <a href="{{ route('register') }}">Register</a>
-                            </div>
-                        @endguest
-                        <div class="mx-1 bg-blue-500 text-white p-2 rounded-lg font-medium w-full shadow-sm">
-                            <a href="">Categories</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </button>
-
         <ul class="hidden md:flex items-center">
 
             <!--Category-->
@@ -143,38 +116,39 @@
 
         @yield('content')
     </div>
-<script>
 
-    function profileMenu() {
-        if (document.getElementById('mobile-nav3').classList.contains('hidden')){
-            document.getElementById('mobile-nav3').classList.remove('hidden');
-        }
-        else {
-            document.getElementById('mobile-nav3').classList.add('hidden');
-        }
-    };
+    <script>
+        function profileMenu() {
+            if (document.getElementById('mobile-nav3').classList.contains('hidden')){
+                document.getElementById('mobile-nav3').classList.remove('hidden');
+            }
+            else {
+                document.getElementById('mobile-nav3').classList.add('hidden');
+            }
+        };
 
-    document.getElementById('hamburgerMenu').addEventListener('click', function () {
-        if (document.getElementById('mobile-nav').classList.contains('hidden')){
-            document.getElementById('mobile-nav').classList.remove('hidden');
-        }
-        else {
-            document.getElementById('mobile-nav').classList.add("hidden");
-        }
-    });
+        document.getElementById('floweltoMenu').addEventListener('click', function () {
+            if (document.getElementById('mobile-nav').classList.contains('hidden')){
+                document.getElementById('mobile-nav').classList.remove('hidden');
+            }
+            else {
+                document.getElementById('mobile-nav').classList.add("hidden");
+            }
+        });
 
-    document.getElementById('categoryMenu').addEventListener('click', function () {
-        if (document.getElementById('mobile-nav2').classList.contains('hidden')){
-            document.getElementById('mobile-nav2').classList.remove("hidden");
-        }
-        else {
-            document.getElementById('mobile-nav2').classList.add("hidden");
-        }
-    });
+        document.getElementById('categoryMenu').addEventListener('click', function () {
+            if (document.getElementById('mobile-nav2').classList.contains('hidden')){
+                document.getElementById('mobile-nav2').classList.remove("hidden");
+            }
+            else {
+                document.getElementById('mobile-nav2').classList.add("hidden");
+            }
+        });
 
-    document.getElementById('logoutButton').addEventListener('click', function () {
-       document.getElementById('logoutForm').submit();
-    });
-</script>
+        document.getElementById('logoutButton').addEventListener('click', function () {
+        document.getElementById('logoutForm').submit();
+        });
+    </script>
+
 </body>
 </html>

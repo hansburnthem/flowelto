@@ -22,7 +22,7 @@ class ManagerController extends Controller
         if(auth()->user()->role_id != 1) return redirect()->route('home')->with('status','[err] Please login with manager account');
     }
 
-//-------------------------------------------------CATEGORIES--------------------------------------------------------------
+//-------------------------------------------------CATEGORIES--------------------------------------------------------------------------
 
     //View Categories for Manager
     public function viewCategories() {
@@ -78,7 +78,7 @@ class ManagerController extends Controller
         {
             $file = $request->file('category_img');
             $destinationPath = 'assets/categories/';
-            $filename = date('YmdHis')."_"."Category".$request->category_name.".".$file->getClientOriginalExtension();
+            $filename = date('YmdHis')."_".$request->category_name.".".$file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
 
             $categories->category_img = $destinationPath.$filename;
@@ -87,16 +87,14 @@ class ManagerController extends Controller
         $categories->save();
         $categories = FlowerCategory::orderBy('category_name')->get();
 
-        // return redirect()->route('updateFormCategories', [$id]);
-        // return redirect()->back()->with(['status' => 'Profile updated successfully.']);
         return view('index',compact('categories'));
     }
 
-//-------------------------------------------------FLOWERS--------------------------------------------------------------
+//-------------------------------------------------FLOWERS----------------------------------------------------------------------
 
 
     //Form Add Flower
-    public function FormAddFlower(){
+    public function FormAddFlower(){ 
         $flower = Flower::with('category')->paginate();
         $category=FlowerCategory::all();
         return view('manager.add-flower',compact('flower','category'));
@@ -104,21 +102,45 @@ class ManagerController extends Controller
 
     //Add Flower
     public function addFlower(Request $request){
-        $flower = Flower::with('category')->paginate();
+        $message = [
+            'flower_category_id.required'           => 'Flower category must be filled',
+            'flower_name.required'                  => 'Flower name must be filled',
+            'flower_name.min'                      	=> 'Flower name with minimum 8 characters',
+            'flower_name.unique'                    => 'Flower name already exist!',
+            'flower_price.required'                 => 'Flower name must be filled',
+            'flower_price.min'                      => 'Flower price with minimum 50000',
+            'flower_desc.required'                 => 'Flower description must be filled',
+            'flower_desc.min'                       => 'Flower description with minimum 20 characters',
+            'flower_img.required'                   => 'Flower image must be filled'
+        ];	
+        
+        $validator = Validator::make($request->all(), [
+            'flower_category_id'    => 'required',
+            'flower_name'           => 'required|unique:flower_name|min:5',
+            'flower_price'          => 'required|unique:flower_name|min:5',
+            'flower_img'            => 'required',
+            'flower_desc'           => 'required|min:20'
+        ], $message);
+
+
+        // if($validator->fails()){
+        //     return redirect()->back()->withErrors($validator->errors());
+        // }
+
         $flower = Flower::create($request->all());
+
         if($request->hasFile('flower_img')){
             $request->file('flower_img')->move('assets/categories/',$request->file('flower_img')->getClientOriginalName());
             $filenames= "assets/categories/";
             $flower->flower_img = $filenames.$request->file('flower_img')->getClientOriginalName();
-            $flower->save();
         }
+        $flower->save();
         return redirect('/');
     }
 
     //Update Flower Form
     public function edit($id) {
         if($this->checkAccount()) return $this->checkAccount();
-        
         $category = FlowerCategory::all();
         $data = Flower::with('category')->paginate();
         $data = Flower::find($id);
@@ -128,17 +150,45 @@ class ManagerController extends Controller
 
     //Update Flower
     public function update(Request $request, $id){
-        $flower=Flower::with('category')->paginate();
-        $category = FlowerCategory::all();
+        $message = [
+            'flower_category_id.required'           => 'Flower category must be filled',
+            'flower_name.required'                  => 'Flower name must be filled',
+            'flower_name.min'                      	=> 'Flower name with minimum 8 characters',
+            'flower_name.unique'                    => 'Flower name already exist!',
+            'flower_price.required'                 => 'Flower name must be filled',
+            'flower_price.min'                      => 'Flower price with minimum 50000',
+            'flower_desc.required'                 => 'Flower description must be filled',
+            'flower_desc.min'                       => 'Flower description with minimum 20 characters',
+            'flower_img.required'                   => 'Flower image must be filled'
+        ];	
+        
+        $validator = Validator::make($request->all(), [
+            'flower_category_id'    => 'required',
+            'flower_name'           => 'required|unique:flower_name|min:8',
+            'flower_price'          => 'required|unique:flower_name|min:5',
+            'flower_img'            => 'required',
+            'flower_desc'           => 'required|min:20'
+        ], $message);
+
+        // if($validator->fails()){
+        //     return redirect()->back()->withErrors($validator->errors());
+        // }
+
         $flower = Flower::find($id);
-        $flower->update($request->all());
+        $flower->flower_category_id     = $request->flower_category_id;
+        $flower->flower_name            = $request->flower_name;
+        $flower->flower_price           = $request->flower_price;
+        $flower->flower_img             = $request->flower_img;
+        $flower->flower_desc            = $request->flower_desc;
+
 
         if($request->hasFile('flower_img')){
             $request->file('flower_img')->move('assets/categories/',$request->file('flower_img')->getClientOriginalName());
             $filenames= "assets/categories/";
             $flower->flower_img = $filenames.$request->file('flower_img')->getClientOriginalName();
-            $flower->save();
         }
+        $flower->save();
+
         return redirect('/');
     }
 
@@ -146,7 +196,7 @@ class ManagerController extends Controller
     public function delete($id){
         $flower = Flower::find($id);
         $flower->delete($flower);
-        return redirect('/');
+        return redirect()->back();
     }   
 
 }

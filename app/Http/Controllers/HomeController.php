@@ -48,7 +48,7 @@ class HomeController extends Controller
         $category = FlowerCategory::where('id',$id)->first();
 
         // mengambil data dari table flower sesuai pencarian data
-        $flowers = Flower::where('flower_name','like',"%".$cari."%")->paginate(1);
+        $flowers = Flower::where('flower_name','like',"%".$cari."%")->orwhere('flower_price','like',"%".$cari."%")->paginate(1);
 
         //return value category dan flower berdasarkan data yang diinput di form
         return view('layouts.viewProduct', compact('category','flowers','allCategory'));

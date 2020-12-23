@@ -1,6 +1,6 @@
 @switch($statusType)
     @case('scc')
-        <div class="p-2 w-auto rounded-xl text-green-700 bg-green-100 border border-green-300 flex flex-row mb-2">
+        <div class="p-2 w-auto rounded-xl text-blue-700 bg-blue-100 border border-blue-300 flex flex-row mb-2">
             @component ('components.icons', ['icon' => 'success', 'size'=>'5','hidden' => false])
             @endcomponent
             <div class="text-sm text-center ml-1">
